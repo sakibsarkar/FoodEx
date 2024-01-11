@@ -1,0 +1,60 @@
+.deliveryContainer {
+    width: 1300px;
+    margin: 150px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+}
+
+.graphic {
+    min-width: 400px;
+    height: 450px;
+    background: rgb(240, 52, 84);
+    background: linear-gradient(170deg, rgba(240, 52, 84, 1) 0%, rgba(248, 64, 165, 1) 100%);
+    border-radius: 30% 70% 70% 30% / 30% 36% 64% 70%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphic img {
+    position: absolute;
+    bottom: -10px;
+    width: 300px;
+}
+
+
+.deliveryContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.deliveryContent h1 {
+    font-size: 40px;
+    color: #252525
+}
+
+.deliveryContent h1 span {
+    color: #f53b85;
+
+}
+
+
+.deliveryContent a {
+    border: 1px solid #f53b85;
+    color: #f53b85;
+    border-radius: 20px;
+    padding: 8px 11px;
+    transition: 0.3s;
+}
+
+.deliveryContent a:hover {
+    box-shadow: inset 95px 0 #f53b85;
+    color: white;
+}

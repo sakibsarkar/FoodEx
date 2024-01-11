@@ -1,6 +1,7 @@
 import "./Home.css";
 import Advertisement from "../../Components/Advertisement/Advertisement";
 import Banner from "../../Components/Banner/Banner";
+import Delivery from "../../Components/Delivery/Delivery";
 import DisplayItems from "../../Components/DisplayItems/DisplayItems";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
@@ -36,7 +37,7 @@ const Home = () => {
 
 
 
-    
+
 
 
     return (
@@ -48,6 +49,7 @@ const Home = () => {
             <DisplayItems heading={"Burger"} itemData={burger} />
             <Link className="viewMore">Find More <IoFastFoodOutline /></Link>
             <Advertisement />
+            <Delivery />
         </div>
     );
 };

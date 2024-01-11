@@ -2,6 +2,7 @@ import "./Login.css";
 import SocialAuth from "../../Components/SocialAuth/SocialAuth";
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     window.scroll(0, 0)
@@ -12,12 +13,12 @@ const Login = () => {
         <div className="loginContainer">
             <div className="loginBox">
                 <form>
-                    <div>
+                    <div className="inputBox">
                         <p>Email</p>
                         <input type="email" required />
                     </div>
 
-                    <div>
+                    <div className="inputBox">
                         <p>Password</p>
                         <input type={showPass ? "text" : "password"} required />
                         <div className="eye" onClick={() => setShowPass(!showPass)}>
@@ -28,6 +29,7 @@ const Login = () => {
                         </div>
                     </div>
                     <button>Login</button>
+                    <p className="goTo">New here? <Link>Signup</Link></p>
                     <SocialAuth />
                 </form>
 

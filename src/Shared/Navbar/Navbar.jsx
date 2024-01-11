@@ -6,7 +6,7 @@ import { FaShop } from "react-icons/fa6";
 import { GiScooter } from "react-icons/gi";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -24,10 +24,10 @@ const Navbar = () => {
                         <p>Choose your <span>location</span></p>
                     </div>
 
-                    <div className="login">
+                    <Link className="login" to={"/login"}>
                         <FaRegUser />
                         <p>LOGIN</p>
-                    </div>
+                    </Link>
 
                 </div>
 

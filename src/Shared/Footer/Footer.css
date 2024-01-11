@@ -1,0 +1,148 @@
+footer {
+    min-height: 400px;
+    position: relative;
+    background-color: #e02c74;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 135px 0 0 0;
+    gap: 20px;
+
+}
+
+.footerWrapper {
+    width: calc(100% - 100px);
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+footer img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: rotate(180deg);
+    left: 0;
+}
+
+.footerLogo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    color: white;
+    flex-direction: column;
+}
+
+.footerLogo h1 {
+    font-size: 30px;
+}
+
+.footerLogo p {
+    width: 415px;
+    font-size: 12px;
+}
+
+.footerLogo a {
+    color: black;
+    background: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+
+.footerBox {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+}
+
+
+.footerBox .socialLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.footerBox .socialLinks a {
+    color: #f53b85;
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.footerWrapper form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 300px;
+    color: white;
+}
+
+
+.footerWrapper form input {
+    width: calc(100% - 5px);
+    background-color: #c8165d;
+    height: 30px;
+    padding: 0 0 0 5px;
+    outline: none;
+    border: none;
+
+}
+
+.footerWrapper form input::placeholder {
+    color: white;
+
+}
+
+.footerWrapper form textarea::placeholder {
+    color: white;
+
+}
+
+.footerWrapper form textarea {
+    width: calc(100% - 5px);
+    padding: 5px 0 0 5px;
+    resize: none;
+    background-color: #c8165d;
+    outline: none;
+    border: none;
+    height: 130px;
+}
+
+.footerWrapper form button {
+    padding: 5px 27px;
+    background: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.footerBottom {
+    background: #ff3a89;
+    padding: 14px 0;
+    color: white;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerBottom span {
+    color: #aad81a;
+}

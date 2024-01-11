@@ -3,6 +3,7 @@ import Advertisement from "../../Components/Advertisement/Advertisement";
 import Banner from "../../Components/Banner/Banner";
 import Delivery from "../../Components/Delivery/Delivery";
 import DisplayItems from "../../Components/DisplayItems/DisplayItems";
+import Footer from "../../Shared/Footer/Footer";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -50,6 +51,7 @@ const Home = () => {
             <Link className="viewMore">Find More <IoFastFoodOutline /></Link>
             <Advertisement />
             <Delivery />
+            <Footer />
         </div>
     );
 };

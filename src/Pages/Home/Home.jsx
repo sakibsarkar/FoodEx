@@ -6,12 +6,14 @@ import DisplayItems from "../../Components/DisplayItems/DisplayItems";
 import Footer from "../../Shared/Footer/Footer";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 const Home = () => {
-
+    const [shouldShake, setShouldShake] = useState(false);
     const axios = UseAxios();
 
     const [biryani, setBiryani] = useState([])
@@ -36,14 +38,34 @@ const Home = () => {
         }
     })
 
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setShouldShake(true);
+
+            setTimeout(() => {
+                setShouldShake(false);
+            }, 1000);
+
+        }, 3000);
+
+        return () => clearInterval(intervalId);
+    }, []);
 
 
+
+    const options = {
+        // your options here, for example:
+        duration: 600,
+        smooth: true,
+    };
 
 
 
     return (
         <div>
-
+            <div className={shouldShake ? "scrollToTop shake" : "scrollToTop"} onClick={() => animateScroll.scrollToTop(options)}>
+                <FaRegArrowAltCircleUp />
+            </div>
             <Banner />
             <DisplayItems heading={"Biryani"} itemData={biryani} />
             <DisplayItems heading={"Kebab"} itemData={kebab} />
@@ -52,7 +74,7 @@ const Home = () => {
             <Advertisement />
             <Delivery />
             <Footer />
-        </div>
+        </div >
     );
 };
 

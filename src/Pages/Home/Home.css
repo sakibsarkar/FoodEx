@@ -1,0 +1,13 @@
+.viewMore {
+    color: white;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: #f840a5;
+    font-size: 21px;
+    padding: 7px 25px;
+    border-radius: 3px;
+}

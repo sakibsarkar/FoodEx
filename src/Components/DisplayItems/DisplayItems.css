@@ -1,0 +1,11 @@
+.displayItemContainer {
+    width: 1300px;
+    margin: 50px auto;
+
+}
+
+.itemContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 307px);
+    gap: 25px;
+}

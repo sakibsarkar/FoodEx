@@ -1,0 +1,73 @@
+.foodCard {
+    width: 307px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #cccccc;
+    position: relative;
+}
+
+.favIcon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    align-items: center;
+    transition: 0.2s;
+    color: #f958b0;
+}
+
+.favIcon:hover {
+    padding: 2px;
+}
+
+.foodCard .foodImg {
+    width: 100%;
+    height: 200px;
+}
+
+.foodCard .foodImg img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.infoWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    flex-direction: column;
+    padding: 4px 0 8px 8px;
+}
+
+.infoWrapper span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.infoWrapper h1 {
+    font-size: 20px;
+}
+
+.infoWrapper .info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.infoWrapper .info p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3px;
+}

@@ -1,0 +1,19 @@
+.addContaier {
+    width: 1300px;
+    height: 300px;
+    background-image: linear-gradient(#171b314f, #171b314f), url("https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2022/05/Untitled-design-45-3-845x321.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.addContaier h1 {
+    color: white;
+    
+}

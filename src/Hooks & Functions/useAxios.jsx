@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 
-const useAxios = () => {
+const UseAxios = () => {
     instance.interceptors.response.use((res) => {
         return res
     },
@@ -18,6 +18,7 @@ const useAxios = () => {
             return Promise.reject(err)
         }
     )
+    return instance
 }
 
-export default useAxios
+export default UseAxios

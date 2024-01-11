@@ -1,19 +1,36 @@
 .addContaier {
     width: 1300px;
-    height: 300px;
-    background-image: linear-gradient(#171b314f, #171b314f), url("https://blog.dineout-cdn.co.in/blog/wp-content/uploads/2022/05/Untitled-design-45-3-845x321.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: auto;
+    height: 500px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.addCotent {
+    width: 1300px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    text-align: center;
 }
 
-.addContaier h1 {
+.addCotent h1 {
+    color: #efefef;
+    font-size: 50px;
+
+}
+
+.addCotent a {
+    background: #f840a5;
     color: white;
-    
+    padding: 8px 7px;
+    font-size: 20px;
+    border: 1px solid #f840a500;
+    transition: 0.3s;
+}
+
+.addCotent a:hover {
+    border: 1px solid #f840a5;
+    background-color: transparent;
 }

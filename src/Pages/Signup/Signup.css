@@ -1,0 +1,71 @@
+.signupContainer {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.signupContainer form {
+    width: 450px;
+    padding: 0 45px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+
+    min-height: 500px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    gap: 10px;
+}
+
+.signupContainer form h1 {
+    color: #ff50b0;
+    margin: 0 0 53px 0;
+}
+
+.signupContainer form .bro {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.signupContainer form input {
+    width: calc(100% - 9px);
+    height: 30px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 0 0 9px;
+}
+
+.signupContainer form input:focus {
+    border: 1px solid #fe31a2;
+}
+
+
+.signupContainer form .photoFeild {
+    width: calc(100% - 9px) !important;
+    padding: 8px 0 0 9px;
+    border: 2px dashed #da1481;
+}
+
+
+.signupContainer form button {
+    width: 100%;
+    background: linear-gradient(148deg, rgb(232 37 192) 0%, rgba(248, 64, 165, 1) 100%);
+    border: none;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}

@@ -29,7 +29,7 @@ const Login = () => {
                         </div>
                     </div>
                     <button>Login</button>
-                    <p className="goTo">New here? <Link>Signup</Link></p>
+                    <p className="goTo">New here? <Link to={"/signup"}>Signup</Link></p>
                     <SocialAuth />
                 </form>
 

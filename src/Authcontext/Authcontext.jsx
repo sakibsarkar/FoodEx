@@ -55,11 +55,14 @@ const Authcontext = ({ children }) => {
                 const { data } = await axios.get(`/role?email=${USER?.email}`)
                 setRole(data?.role)
                 setUser(USER)
+                setLoading(false)
                 return;
             }
 
             setRole("")
             setUser(USER)
+            setLoading(false)
+
         })
 
     }, [waitForUser, axios])

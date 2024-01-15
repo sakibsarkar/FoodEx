@@ -1,3 +1,4 @@
+import "@sweetalert2/theme-bulma/bulma.scss";
 import "aos/dist/aos.css";
 import "./index.css";
 import AOS from "aos";

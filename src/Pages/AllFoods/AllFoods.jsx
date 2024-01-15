@@ -110,7 +110,7 @@ const AllFoods = () => {
                                 data?.length == 0
                                 &&
                                 <div className="no-data">
-                                    <img src="https://i.ibb.co/XZYn8CV/nodata.png" alt="" />
+                                    <img src="https://i.ibb.co/XZYn8CV/nodata.png" alt="" draggable={false} />
                                     <h1>Opps ! Sorry we don't have any data for this.</h1>
                                 </div>
                             }

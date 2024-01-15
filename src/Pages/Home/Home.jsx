@@ -19,7 +19,7 @@ const Home = () => {
     const [kebab, setKebab] = useState([])
     const [burger, setBurger] = useState([])
 
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ["biryani"],
         queryFn: async () => {
             // const res = await fetch("http://localhost:5000/api/food?limit=4&&category=biryani")

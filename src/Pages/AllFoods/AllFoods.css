@@ -22,6 +22,7 @@
     width: 300px;
     background-color: #ffffff;
     border: 1px solid #ececec;
+    border-radius: 8px;
     position: sticky;
     height: 400px;
     top: 0;

@@ -1,4 +1,3 @@
-import "@sweetalert2/theme-bulma/bulma.scss";
 import "./Navbar.css";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import UseAxios from "../../Hooks & Functions/useAxios";
@@ -10,6 +9,7 @@ import { CiLogout } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { FaShop } from "react-icons/fa6";
 import { GiScooter } from "react-icons/gi";
+import { GrWorkshop } from "react-icons/gr";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
@@ -91,6 +91,13 @@ const Navbar = () => {
                                     {
                                         role === "vendor" ?
                                             <Link to={"/dashboard/vendor"}><MdOutlineSpaceDashboard />Dashboard</Link>
+
+                                            : ""
+                                    }
+
+                                    {
+                                        role === "user" ?
+                                            <Link to={"/becomeVendor"}><GrWorkshop />Become a Vendor</Link>
 
                                             : ""
                                     }

@@ -1,0 +1,60 @@
+.reqFormContainer {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 70px 0 0 0;
+    gap: 50px;
+}
+
+.reqFormContainer form {
+    width: 450px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    padding: 45px;
+    border-radius: 12px;
+}
+
+.reqFormContainer form>div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reqFormContainer form>div input {
+    width: calc(100% - 10px);
+    height: 36px;
+    background: #f3f4f6;
+    border: 1px solid #9c9c9c;
+    padding: 0 0 0 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.reqFormContainer form button {
+    width: 100%;
+    padding: 10px 0;
+    background: #da1481;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
+.inspireBox {
+    color: #e44969;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

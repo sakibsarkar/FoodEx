@@ -6,6 +6,7 @@
     overflow-x: auto;
     gap: 50px;
     position: relative;
+    padding: 40px 0 0 0;
 }
 
 .allFoodContainer::-webkit-scrollbar {
@@ -101,6 +102,10 @@
 }
 
 
+.priceRange .multi-range-slider .bar>* {
+    box-shadow: none !important;
+}
+
 .deliveryTimes {
     display: flex;
     flex-direction: column;
@@ -129,4 +134,15 @@
 .deliveryTimes .timeSelected {
     background-color: #da1481 !important;
     color: white !important;
+}
+
+
+.no-data {
+    width: 961px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fc5b63;
+
 }

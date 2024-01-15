@@ -1,6 +1,7 @@
 import "./AllFoods.css";
 import FoodCard from "../../Cards/FoodCard/FoodCard";
 import MultiRangeSlider from "multi-range-slider-react";
+import ProductSkeleton from "../../Components/ProductSkeleton/ProductSkeleton";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -17,7 +18,7 @@ const AllFoods = () => {
     const [maxValue, set_maxValue] = useState(1000);
     const axios = UseAxios()
 
-    const { data } = useQuery({
+    const { data = [], isLoading } = useQuery({
         queryKey: ["allfoods", selectedCategory, maxValue, minValue, selectedTime],
         queryFn: async () => {
             const { data: foodData } = await axios.get(`/allfoods?limit=${12}&&currentPage=${0}&&category=${selectedCategory}&&min=${minValue}&&max=${maxValue}&&time=${selectedTime}`)
@@ -68,6 +69,8 @@ const AllFoods = () => {
                         thumbLeftColor="#da1481"
                         thumbRightColor="#da1481"
                         barInnerColor="#da1481"
+                        barLeftColor="#e4e4e4"
+                        barRightColor="#e4e4e4"
 
                     />
                 </div>
@@ -89,8 +92,35 @@ const AllFoods = () => {
             </div>
 
             <div className="foodsContainer">
+
                 {
-                    data?.map(item => <FoodCard key={item._id} data={item} />)
+
+                    isLoading ?
+                        <>
+                            <ProductSkeleton />
+                            <ProductSkeleton />
+                            <ProductSkeleton />
+                            <ProductSkeleton />
+                            <ProductSkeleton />
+                            <ProductSkeleton />
+                        </>
+                        :
+                        <>
+                            {
+                                data?.length == 0
+                                &&
+                                <div className="no-data">
+                                    <img src="https://i.ibb.co/XZYn8CV/nodata.png" alt="" />
+                                    <h1>Opps ! Sorry we don't have any data for this.</h1>
+                                </div>
+                            }
+
+                            {
+                                data?.map(item => <FoodCard key={item._id} data={item} />)
+                            }
+
+                        </>
+
                 }
             </div>
         </div>

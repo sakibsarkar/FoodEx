@@ -1,4 +1,6 @@
+import UseAxios from "../Hooks & Functions/useAxios";
 import auth from "../FirebaseCnfig";
+import axios from "axios";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 
@@ -7,7 +9,7 @@ export const Mycontext = createContext(null)
 const Authcontext = ({ children }) => {
     const [paymentObject, setPaymentObject] = useState({})
     const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState("")
+    const [user, setUser] = useState(null)
     const [waitForUser, setWaitForUser] = useState(true)
     const [toast, setToast] = useState(null)
     const [role, setRole] = useState("")
@@ -15,7 +17,7 @@ const Authcontext = ({ children }) => {
     const [naviGateLocation, setNaviGateLocation] = useState("")//it will be use in register page we will set the value from log in page
 
 
-    // const axios = UseAxios()
+    const axios = UseAxios()
 
 
     const googleAuthentication = () => {
@@ -45,18 +47,22 @@ const Authcontext = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-
     useEffect(() => {
 
-        onAuthStateChanged(auth, USER => {
+        onAuthStateChanged(auth, async (USER) => {
+
+            if (USER) {
+                const { data } = await axios.get(`/role?email=${USER?.email}`)
+                setRole(data?.role)
+                setUser(USER)
+                return;
+            }
+
+            setRole("")
             setUser(USER)
-            setLoading(false)
         })
 
-
-
-
-    }, [waitForUser])
+    }, [waitForUser, axios])
 
 
     const items = {

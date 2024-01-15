@@ -1,21 +1,53 @@
+import "@sweetalert2/theme-bulma/bulma.scss";
 import "./Navbar.css";
-import { useContext } from "react";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import UseAxios from "../../Hooks & Functions/useAxios";
+import { useContext, useState } from "react";
 import { BiHomeHeart } from "react-icons/bi";
 import { CiHeart } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
+import { CiLogout } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { FaShop } from "react-icons/fa6";
 import { GiScooter } from "react-icons/gi";
 import { IoLocationOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
+import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
+import { LiaUserEditSolid } from "react-icons/lia";
 import { Link, NavLink } from "react-router-dom";
 import { Mycontext } from "../../Authcontext/Authcontext";
 
 const Navbar = () => {
 
+    const [showDropdown, setShowDropdown] = useState(false)
 
-    const { user, logOut } = useContext(Mycontext)
+
+    const { user, logOut, role } = useContext(Mycontext)
 
     const userName = user?.displayName?.split(" ")[0]
+
+    const axios = UseAxios()
+
+    const handleLogout = () => {
+        Swal.fire({
+
+            title: "Do you want to Logout",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: `No,`
+        }).then(async (result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                logOut()
+                await axios.post("/logout")
+
+                Swal.fire("Successfully loged out", "", "success");
+            } else if (result.isDenied) {
+
+                return
+            }
+        });
+    }
 
     return (
         <nav className="navbar">
@@ -34,12 +66,38 @@ const Navbar = () => {
 
                     {
                         user ?
-                            <div className="userBox">
+                            <div className="userBox" onClick={() => setShowDropdown(!showDropdown)} >
                                 <div className="avatar">
                                     <img src={user?.photoURL} />
                                 </div>
                                 <div className="user_super">
-                                    <p>{userName}</p>
+                                    <p style={{ fontWeight: "500" }}>Hello,{userName}</p>
+                                    <p style={{ color: "#8f8f8f" }}>See more...</p>
+                                </div>
+
+                                <div className={showDropdown ? "userDropDown showDropdown" : "userDropDown"} >
+                                    <Link><CiUser />Profile</Link>
+                                    <Link><LiaFileInvoiceDollarSolid />Order History</Link>
+                                    <Link><LiaUserEditSolid />Update Profile</Link>
+
+                                    {
+                                        role === "admin" ?
+                                            <Link to={"/dashboard/admin"}><LiaUserEditSolid />Dashboard</Link>
+
+                                            : ""
+                                    }
+
+                                    {
+                                        role === "vendor" ?
+                                            <Link to={"/dashboard/vendor"}><LiaUserEditSolid />Dashboard</Link>
+
+                                            : ""
+                                    }
+
+                                    
+                                    <button className="logoutBtn"
+                                        onClick={handleLogout}
+                                    ><CiLogout />Logout</button>
                                 </div>
                             </div>
                             :
@@ -72,7 +130,7 @@ const Navbar = () => {
 
             </div>
 
-        </nav>
+        </nav >
     );
 };
 

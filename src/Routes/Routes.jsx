@@ -1,3 +1,4 @@
+import AllFoods from "../Pages/AllFoods/AllFoods";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/signup",
                 element: <Signup />
+            },
+            {
+                path: "/delivery",
+                element: <AllFoods />
             }
         ]
     }

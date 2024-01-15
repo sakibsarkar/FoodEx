@@ -43,7 +43,7 @@ const Login = () => {
                             }
                         </div>
                     </div>
-                    <button>Login</button>
+                    <button type="submit">Login</button>
                     <p className="goTo">New here? <Link to={"/signup"}>Signup</Link></p>
                     <SocialAuth />
                 </form>

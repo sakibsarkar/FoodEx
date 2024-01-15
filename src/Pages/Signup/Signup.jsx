@@ -7,6 +7,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { addUser } from "../../Hooks & Functions/addUser";
 import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const Signup = () => {
@@ -66,6 +67,8 @@ const Signup = () => {
 
             })
 
+            await addUser(user)
+
 
 
             toast.dismiss(toastLoader)
@@ -111,7 +114,7 @@ const Signup = () => {
                     }
                 </div>
                 <input type="password" placeholder="Confirm your password" name="Cpassword" required />
-                <button>Signup</button>
+                <button type="submit">Signup</button>
 
                 <SocialAuth />
             </form>

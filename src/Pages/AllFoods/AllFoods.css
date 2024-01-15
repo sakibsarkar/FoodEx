@@ -1,0 +1,10 @@
+.allFoodContainer {
+    min-height: 100vh;
+}
+
+.foodsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 307px);
+    gap: 20px;
+    justify-content: center;
+}

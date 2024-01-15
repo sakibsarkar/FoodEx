@@ -14,6 +14,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { LiaUserEditSolid } from "react-icons/lia";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { Mycontext } from "../../Authcontext/Authcontext";
 
@@ -82,19 +83,19 @@ const Navbar = () => {
 
                                     {
                                         role === "admin" ?
-                                            <Link to={"/dashboard/admin"}><LiaUserEditSolid />Dashboard</Link>
+                                            <Link to={"/dashboard/admin"}><MdOutlineSpaceDashboard />Dashboard</Link>
 
                                             : ""
                                     }
 
                                     {
                                         role === "vendor" ?
-                                            <Link to={"/dashboard/vendor"}><LiaUserEditSolid />Dashboard</Link>
+                                            <Link to={"/dashboard/vendor"}><MdOutlineSpaceDashboard />Dashboard</Link>
 
                                             : ""
                                     }
 
-                                    
+
                                     <button className="logoutBtn"
                                         onClick={handleLogout}
                                     ><CiLogout />Logout</button>

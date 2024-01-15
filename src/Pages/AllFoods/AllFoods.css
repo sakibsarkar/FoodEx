@@ -1,5 +1,41 @@
 .allFoodContainer {
-    min-height: 100vh;
+    height: calc(100vh - 152px);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    overflow-x: auto;
+    gap: 50px;
+    position: relative;
+}
+
+.allFoodContainer::-webkit-scrollbar {
+    width: 5px;
+}
+
+.allFoodContainer::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    border-radius: 5px;
+}
+
+.filterBar {
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    position: sticky;
+    height: 400px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 26px 23px;
+}
+
+.filterBar h2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
 }
 
 .foodsContainer {
@@ -7,4 +43,90 @@
     grid-template-columns: repeat(3, 307px);
     gap: 20px;
     justify-content: center;
+}
+
+
+
+
+.categoryFilterBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+.categoryFilterBox>div {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.categoryFilterBox button {
+    background: transparent;
+    border: 1px solid #da1481;
+    color: #da1481;
+    padding: 4px 9px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.categoryFilterBox .categorySelected {
+    background-color: #da1481 !important;
+    color: white !important;
+}
+
+.priceRange h2 span {
+    color: #da1481;
+}
+
+
+.priceRange .multi-range-slider .bar-inner {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.priceRange .caption * {
+    background-color: #da1481 !important;
+    box-shadow: none !important;
+
+}
+
+.priceRange .multi-range-slider .thumb::before {
+    border: 1px solid white;
+    box-shadow: none !important;
+}
+
+
+.deliveryTimes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.deliveryTimes>div {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.deliveryTimes button {
+    background: transparent;
+    border: 1px solid #da1481;
+    color: #da1481;
+    padding: 4px 9px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deliveryTimes .timeSelected {
+    background-color: #da1481 !important;
+    color: white !important;
 }

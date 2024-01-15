@@ -95,6 +95,7 @@
 
 .navbarTop .userBox .userDropDown {
     position: absolute;
+    z-index: 9999;
     background-color: white;
     box-shadow: 0 2px 16.8px 3.2px #00264214;
     top: 53px;

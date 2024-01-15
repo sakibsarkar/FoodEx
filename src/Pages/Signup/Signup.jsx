@@ -1,7 +1,9 @@
 import "./Signup.css";
 import SocialAuth from "../../Components/SocialAuth/SocialAuth";
+import UseAxios from "../../Hooks & Functions/useAxios";
 import { updateProfile } from "firebase/auth";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
@@ -9,7 +11,14 @@ import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const Signup = () => {
 
-    const { createAccountWithEmail, logOut } = useContext(Mycontext)
+    const { createAccountWithEmail, logOut, user: mainUser } = useContext(Mycontext)
+    const [showPass, setShowPass] = useState(false)
+
+    const navigate = useNavigate()
+
+    const axios = UseAxios()
+
+    const adress = "/"
 
 
     const handleSignup = async (e) => {
@@ -48,22 +57,32 @@ const Signup = () => {
         try {
             const { user } = await createAccountWithEmail(email, password)
             const { data } = await uploadImg(photo)
-          
+
+            await axios.post("/token", { email: email })
+
             await updateProfile(user, {
                 photoURL: data?.display_url,
                 displayName: `${Fname} ${Lname}`
 
             })
-         
+
+
+
             toast.dismiss(toastLoader)
-            return toast.success("Error", {
+            toast.success("Successful", {
                 description: `Welcome ${user?.displayName}`
             })
+            return navigate(adress)
         }
 
         catch (err) {
             toast.dismiss(toastLoader)
-            logOut()
+            if (mainUser) {
+                logOut();
+            }
+            toast.error("Error", {
+                description: "Something went Wrong"
+            })
             console.log(err);
         }
 
@@ -84,7 +103,13 @@ const Signup = () => {
                 </div>
                 <input type="file" accept="image/*" placeholder="Your email Adress" name="photo" required className="photoFeild" />
                 <input type="text" placeholder="Your email Adress" name="email" required />
-                <input type="password" placeholder="Create your password" name="password" required />
+                <input type={showPass ? "text" : "password"} placeholder="Create your password" name="password" required />
+                <div className="eye" onClick={() => setShowPass(!showPass)}>
+                    {
+                        showPass ?
+                            <FiEyeOff /> : <FiEye />
+                    }
+                </div>
                 <input type="password" placeholder="Confirm your password" name="Cpassword" required />
                 <button>Signup</button>
 

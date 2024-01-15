@@ -2,18 +2,18 @@
     min-height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
     flex-direction: column;
 }
 
 .signupContainer form {
+    margin: 63px 0 0 0;
     width: 450px;
     padding: 0 45px;
     box-shadow: 0 2px 16.8px 3.2px #00264214;
-
-    min-height: 500px;
+    min-height: 650px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -22,6 +22,14 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     gap: 10px;
+    position: absolute;
+}
+
+.signupContainer form .eye {
+    position: absolute;
+    right: 57px;
+    bottom: 218px;
+    cursor: pointer;
 }
 
 .signupContainer form h1 {
@@ -40,10 +48,11 @@
 
 .signupContainer form input {
     width: calc(100% - 9px);
-    height: 30px;
+    height: 40px;
     font-size: 15px;
     outline: none;
-    border: 1px solid black;
+    border: 1px solid transparent;
+    background-color: #ececec8a;
     border-radius: 5px;
     padding: 0 0 0 9px;
 }
@@ -55,6 +64,7 @@
 
 .signupContainer form .photoFeild {
     width: calc(100% - 9px) !important;
+    height: 133px;
     padding: 8px 0 0 9px;
     border: 2px dashed #da1481;
 }

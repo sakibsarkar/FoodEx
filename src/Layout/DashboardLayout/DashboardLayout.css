@@ -1,0 +1,16 @@
+.dashboardContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #e6e6e6;
+}
+
+.dashOutlets {
+    /* 400px for side bar , 100 px for padding */
+    width: calc(100% - 300px);
+    height: 100%;
+    overflow-Y: auto;
+}

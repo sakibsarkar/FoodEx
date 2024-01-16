@@ -58,3 +58,23 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.alreadyRequested {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    color: #da1481;
+}
+
+.alreadyRequested button {
+    border: none;
+    padding: 6px 12px;
+    background: #fe2ea0;
+    color: white;
+    border-radius: 3px;
+    font-size: 17px;
+    cursor: pointer;
+}

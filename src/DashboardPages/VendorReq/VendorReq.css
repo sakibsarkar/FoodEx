@@ -1,0 +1,70 @@
+.reqBoxContainer {
+    min-height: calc(100% - 40px);
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+
+.reqBoxContainer h1 {
+    color: #cbccce;
+}
+
+.requestContainer {
+    min-height: 90vh;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+
+
+}
+
+.reqBoxContainer .statusBox {
+    width: 400px;
+    height: 70px;
+    background-color: #1b1c1f;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.reqBoxContainer .statusBox button {
+    border: none;
+    padding: 6px 9px;
+    color: white;
+    background: #494949;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+}
+
+.reqBoxContainer .statusBox .activeStatus {
+    background: #1f68ff !important;
+}
+
+.reqBoxContainer .requests {
+    padding: 30px;
+    width: calc(100% - 60px);
+    min-height: calc(80vh - 60px);
+    border-radius: 10px;
+    background-color: #1b1c1f;
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-around;
+}

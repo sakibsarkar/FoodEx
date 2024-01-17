@@ -1,22 +1,33 @@
 import "./Dashbar.css";
-import { FaRegUser } from "react-icons/fa";
-import { FaUserTie } from "react-icons/fa6";
-import { FaShopLock } from "react-icons/fa6";
-import { GoGitPullRequest } from "react-icons/go";
-import { NavLink } from "react-router-dom";
+import AdminDashLinks from "../../Components/AdminDashLinks/AdminDashLinks";
+import VendorDashLinks from "../../Components/VendorDashLinks/VendorDashLinks";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Mycontext } from "../../Authcontext/Authcontext";
 
 const Dashbar = () => {
+    const { role } = useContext(Mycontext)
+
     return (
         <div className="dashbarContainer">
-            <div className="logo">
+            <Link to={"/"} className="logo">
                 <h1>FOOD<span>EX</span></h1>
-            </div>
+            </Link>
 
             <div className="dashLinks">
-                <NavLink to={"/dashboard/admin"}><GoGitPullRequest />Vendor Requests</NavLink>
-                <NavLink to={"/dashboard/myshop"}><FaShopLock />My shop</NavLink>
-                <NavLink to={"/dashboard/users"}><FaRegUser />All User</NavLink>
-                <NavLink to={"/dashboard/members"}><FaUserTie />All Vendor</NavLink>
+                {/* vendor route links */}
+                {
+
+                    role === "admin" ? <AdminDashLinks /> : ""
+                }
+
+
+
+                {/* vendor route links */}
+                {
+
+                    role === "vendor" ? <VendorDashLinks /> : ""
+                }
             </div>
 
 

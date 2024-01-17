@@ -1,0 +1,195 @@
+.create_item_container {
+    width: 100%;
+    height: 300px;
+    background-color: #262831;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.create_item_container .fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: scale(0);
+    background-color: #0144ce;
+    z-index: 3;
+    transition: 0.3s;
+}
+
+.create_item_container:hover .plusIcon {
+    transform: rotate(90deg);
+
+}
+
+.create_item_container:hover .fill {
+    transform: scale(1);
+    border-radius: 0;
+
+}
+
+.create_item_container .plusIcon {
+    transition: 0.4s;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: #0144ce;
+    position: relative;
+    z-index: 5;
+}
+
+
+.create_item_container .plusIcon svg {
+    color: white;
+    background: #1f68ff;
+    border-radius: 50%;
+    font-size: 99px;
+    width: 100%;
+    height: 100%;
+}
+
+.create_item_container h1 {
+    color: #d0d0d0;
+    font-size: 25px;
+    position: relative;
+    z-index: 5;
+}
+
+
+
+.itemForm {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    z-index: 999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #15141496;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: auto;
+
+}
+
+
+.itemForm form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 500px;
+    background-color: #222325;
+    padding: 20px;
+    border-radius: 7px;
+    position: relative;
+}
+
+.itemForm form div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    color: white;
+
+
+
+}
+
+.itemForm form div p {
+    font-size: 20px;
+    color: #c8c8c8;
+    font-weight: 500;
+
+}
+
+.itemForm form .bro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row !important;
+}
+
+.itemForm form select {
+    background-color: #575757;
+    width: 100%;
+    padding: 9px 0;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 17px;
+    outline: none;
+}
+
+
+.itemForm form input {
+    width: calc(100% - 7px);
+    height: 40px;
+    font-size: 16px;
+    outline: none;
+    background-color: #575757;
+    border-radius: 5px;
+    padding: 0 0 0 7px;
+    color: white;
+    border: none;
+}
+
+.itemForm form .image {
+    padding: 33px 0 18px 15px !important;
+    width: calc(100% - 15px) !important;
+}
+
+.itemForm form textarea {
+    width: calc(100% - 7px);
+    height: 120px;
+    resize: none;
+    background-color: #575757;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 7px 0 0 7px;
+}
+
+
+.itemForm form button {
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 4px;
+    background: #1f68ff;
+    color: white;
+    cursor: pointer;
+}
+
+.itemForm form svg {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    background: #1f68ff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}

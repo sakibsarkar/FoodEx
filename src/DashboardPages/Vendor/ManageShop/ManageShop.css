@@ -1,0 +1,18 @@
+.manage_shop_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+.my_items {
+    width: 100%;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(4, 350px);
+}

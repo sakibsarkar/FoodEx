@@ -43,13 +43,14 @@
 .reqBoxContainer .statusBox button {
     border: none;
     padding: 6px 9px;
+    font-size: 14px;
     color: white;
     background: #494949;
     border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     cursor: pointer;
 
 }

@@ -1,9 +1,10 @@
 import "./VendorReq.css";
-import UseAxios from "../../Hooks & Functions/useAxios";
-import VendorRequestCard from "../../Cards/VendorRequestCard/VendorRequestCard";
+import UseAxios from "../../../Hooks & Functions/useAxios";
+import VendorRequestCard from "../../../Cards/VendorRequestCard/VendorRequestCard";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { toast } from "sonner";
+import { FaHandshake } from "react-icons/fa";
+import { MdOutlineCancelPresentation, MdOutlinePendingActions } from "react-icons/md";
 
 const VendorReq = () => {
 
@@ -19,6 +20,7 @@ const VendorReq = () => {
     })
 
     const statusArr = ["Pending", "Accepted", "Rejected"]
+    const StatIcons = [<MdOutlinePendingActions key={"pending"} />, <FaHandshake key={"handshake"} />, <MdOutlineCancelPresentation key={"cancel"} />]
 
 
     return (
@@ -26,11 +28,15 @@ const VendorReq = () => {
             <h1>All {status} Requests</h1>
             <div className="requestContainer">
                 <div className="statusBox">
-                    {statusArr.map((stat, index) => <button
-                        key={index}
-                        onClick={() => setStatus(stat)}
-                        className={status === stat ? "activeStatus" : ""}
-                    >{stat}</button>)}
+                    {statusArr.map((stat, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setStatus(stat)}
+                            className={status === stat ? "activeStatus" : ""}
+                        >
+                            {StatIcons[index]} {stat}
+                        </button>
+                    ))}
                 </div>
 
                 <div className="requests">

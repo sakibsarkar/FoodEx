@@ -2,4 +2,50 @@
     width: 300px;
     height: 100%;
     background-color: #1b1c1f;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 22px;
+}
+
+
+.dashbarContainer .logo {
+    background: #26282f;
+    padding: 14px 25px;
+    width: 100%;
+    color: #e4e4e4;
+}
+
+.dashbarContainer .logo h1 span {
+
+    color: #1f68ff;
+}
+
+.dashbarContainer .dashLinks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+.dashbarContainer .dashLinks a {
+    padding: 13px 0;
+    width: calc(95% - 8px);
+    margin: 0 auto;
+    border-radius: 5px;
+    color: white;
+    padding: 13px 0 13px 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashbarContainer .dashLinks .active {
+    background: #1f68ff;
+
 }

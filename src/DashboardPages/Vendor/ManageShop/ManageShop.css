@@ -14,5 +14,8 @@
     width: 100%;
     min-height: 90vh;
     display: grid;
+    justify-content: center;
+    gap: 20px;
     grid-template-columns: repeat(4, 350px);
+    grid-template-rows: max-content;
 }

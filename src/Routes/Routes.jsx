@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import ManageShop from "../DashboardPages/Vendor/ManageShop/ManageShop";
 import Overview from "../DashboardPages/Vendor/Overview/Overview";
+import Shop from "../Pages/Shop/Shop";
 import Signup from "../Pages/Signup/Signup";
 import UserPrivate from "../Components/PrivateRoutes/UserPrivate";
 import VendorPrivate from "../Components/PrivateRoutes/VendorPrivate";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: "/becomeVendor",
                 element: <UserPrivate><VendorReqForm /></UserPrivate>
+            },
+            {
+                path: "/shop/:vendor_id",
+                element: <UserPrivate><Shop /></UserPrivate>
             }
         ]
     },

@@ -9,9 +9,6 @@ const DisplayItems = ({ heading, itemData = [] }) => {
             <h1>{heading}</h1>
             <div className="itemContainer">
                 {itemData?.map(item => <FoodCard key={item._id} data={item} />)}
-                {itemData?.map(item => <FoodCard key={item._id} data={item} />)}
-                {itemData?.map(item => <FoodCard key={item._id} data={item} />)}
-                {itemData?.map(item => <FoodCard key={item._id} data={item} />)}
             </div>
         </div>
     );

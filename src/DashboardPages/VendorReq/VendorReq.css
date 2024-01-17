@@ -67,4 +67,5 @@
     display: grid;
     grid-template-columns: repeat(2, 48%);
     justify-content: space-around;
+    gap: 40px 0;
 }

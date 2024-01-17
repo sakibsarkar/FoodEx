@@ -3,13 +3,14 @@ import UseAxios from "../../Hooks & Functions/useAxios";
 import VendorRequestCard from "../../Cards/VendorRequestCard/VendorRequestCard";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const VendorReq = () => {
 
     const [status, setStatus] = useState("Pending")
 
     const axios = UseAxios()
-    const { data } = useQuery({
+    const { data, refetch } = useQuery({
         queryKey: ["allReq", status],
         queryFn: async () => {
             const { data: request } = await axios(`/all/req?status=${status}`)
@@ -18,6 +19,8 @@ const VendorReq = () => {
     })
 
     const statusArr = ["Pending", "Accepted", "Rejected"]
+
+
     return (
         <div className="reqBoxContainer">
             <h1>All {status} Requests</h1>
@@ -32,10 +35,12 @@ const VendorReq = () => {
 
                 <div className="requests">
                     {
-                        data?.map(req => <VendorRequestCard key={req._id} data={req} />)
-                    }
-                    {
-                        data?.map(req => <VendorRequestCard key={req._id} data={req} />)
+                        data?.map(req => <VendorRequestCard
+                            key={req._id}
+                            data={req}
+                            refetch={refetch}
+
+                        />)
                     }
                 </div>
             </div>

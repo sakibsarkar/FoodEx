@@ -2,12 +2,19 @@ import "./CheckoutForm.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { todayDate } from "../../Hooks & Functions/todayDate";
 
 const CheckoutForm = () => {
 
-    const { total, cart } = useContext(Mycontext)
+    const { total, cart, setTotal, setCart, user } = useContext(Mycontext)
+    const navigate = useNavigate()
+
+    if (total < 1) {
+        navigate("/")
+    }
 
     const [paymentLoading, setPaymentLoading] = useState(false)
 
@@ -19,7 +26,9 @@ const CheckoutForm = () => {
     const handlePayment = async (e) => {
         e.preventDefault()
 
-        if (!stripe || !elements) {
+        const address = e.target.address.value
+
+        if (!stripe || !elements || paymentLoading) {
             return
         }
 
@@ -47,10 +56,45 @@ const CheckoutForm = () => {
         }
 
         const { data } = await axios.post("/paymentIntent", { price: total })
-        
+
+        const { paymentIntent, error: err } = await stripe.confirmCardPayment(data?.client_secret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    email: user?.email || "anonymus"
+                }
+            }
+        })
+
+        if (err) {
+            return toast.error("Something went wrong")
+        }
+
+        if (paymentIntent?.status === "succeeded") {
+            const date = todayDate()
+            const orderObj = {
+                user_name: user?.displayName,
+                user_email: user?.email,
+                total: total,
+                order_status: "pending",
+                date: date,
+                orderData: cart
+            }
+
+            await axios.post("/placeOrder", orderObj)
+
+            setTotal(0)
+            setCart([])
+            setPaymentLoading(false)
+            toast.success(`${user?.displayName} your order has been placed`, {
+                description: "You will soon get your order"
+            })
+
+        }
 
 
 
+        setPaymentLoading(false)
 
 
 
@@ -79,7 +123,7 @@ const CheckoutForm = () => {
                         }}
                     />
 
-                    <textarea name="adress" placeholder="Your adress"></textarea>
+                    <textarea name="address" placeholder="Your adress" required />
 
                     <button>Pay</button>
                 </form>

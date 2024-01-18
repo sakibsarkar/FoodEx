@@ -23,23 +23,37 @@ const CartDisplay = () => {
         <div className="cart_display">
             <h1>Cart</h1>
 
-            <div className="displayItemsCon">
-                {
-                    cart?.map((data, i) => <div className="cartItemName" key={i}>
 
-                        <p onClick={() => handleRemove(i)}><FaRegTrashAlt /> {data?.name}</p>
-                        <p>{data?.price}</p>
+            {
+
+                isEmpty ?
+                    <div className="emptyCart">
+                        <img src="https://i.ibb.co/F78L3K4/empty-Cart.png" alt="" />
+                        <p>You didn't added anything from here</p>
                     </div>
-                    )
+
+                    :
+                    <div className="displayItemsCon">
+                        {
+                            cart?.map((data, i) => <div className="cartItemName" key={i}>
+
+                                <p onClick={() => handleRemove(i)}><FaRegTrashAlt /> {data?.name}</p>
+                                <p>{data?.price}</p>
+                            </div>
+                            )
 
 
-                }
+                        }
 
 
-            </div>
+                    </div>
+
+            }
+
+
 
             <div className="cartBottom">
-                <h2>Total : {total}Tk</h2>
+                <h2>Total : <span>{total}Tk</span></h2>
                 <button disabled={isEmpty}>Procced</button>
             </div>
 

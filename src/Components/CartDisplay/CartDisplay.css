@@ -53,6 +53,10 @@
     gap: 10px;
 }
 
+.cart_display .cartBottom span {
+    color: #da1481;
+}
+
 .cart_display .cartBottom button {
     width: 100%;
     border: none;
@@ -68,4 +72,22 @@
     background-color: #b4b0b2;
     color: white;
     cursor: not-allowed;
+}
+
+
+.emptyCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 500px;
+    color: #da1481;
+    font-weight: 700;
+}
+
+.emptyCart img {
+    width: 150px;
+
 }

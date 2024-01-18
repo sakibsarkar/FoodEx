@@ -3,12 +3,12 @@ import CartDisplay from "../../Components/CartDisplay/CartDisplay";
 import ItemsCard from "../../Cards/ItemsCard/ItemsCard";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { iterate } from "localforage";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Shop = () => {
     const { vendor_id } = useParams()
+    window.scroll(0, 0)
 
     const [selectedCategory, setSelectedCategory] = useState("All")
 

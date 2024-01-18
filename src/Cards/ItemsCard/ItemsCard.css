@@ -45,7 +45,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
     font-size: 17px;
     color: #6a6a6a;
 }

@@ -1,0 +1,50 @@
+.orderCard {
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 7px;
+    overflow-y: auto;
+    color: white;
+    background-color: #26282f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.orderCard .xWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.orderCard .orderInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderCard .orderInfo p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+
+.orderCard button {
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    border: none;
+    background: #1f68ff;
+    color: white;
+    border-radius: 5px;
+
+}

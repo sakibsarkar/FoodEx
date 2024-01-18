@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import ManageShop from "../DashboardPages/Vendor/ManageShop/ManageShop";
 import Overview from "../DashboardPages/Vendor/Overview/Overview";
+import PendingOrders from "../DashboardPages/Vendor/PendingOrders/PendingOrders";
 import Shop from "../Pages/Shop/Shop";
 import Signup from "../Pages/Signup/Signup";
 import UserPrivate from "../Components/PrivateRoutes/UserPrivate";
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/manageShop",
                 element: <VendorPrivate><ManageShop /></VendorPrivate>
+            },
+            {
+                path: "/dashboard/pendingOrders",
+                element: <VendorPrivate><PendingOrders /></VendorPrivate>
             }
         ]
     }

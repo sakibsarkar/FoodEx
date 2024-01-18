@@ -1,0 +1,15 @@
+.pendings {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pendings .pendingContainer {
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 390px);
+    gap: 20px;
+}

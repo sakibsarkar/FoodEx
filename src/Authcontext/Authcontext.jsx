@@ -11,9 +11,9 @@ const Authcontext = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null)
     const [waitForUser, setWaitForUser] = useState(true)
-    const [toast, setToast] = useState(null)
+    const [total, setTotal] = useState(0)
     const [role, setRole] = useState("")
-    const [roleLoading, setRoleLoading] = useState(true)
+    const [cart, setCart] = useState([])
     const [naviGateLocation, setNaviGateLocation] = useState("")//it will be use in register page we will set the value from log in page
 
 
@@ -77,12 +77,13 @@ const Authcontext = ({ children }) => {
         logOut,
         loginWithEmail,
         createAccountWithEmail,
-        toast,
-        setToast,
         naviGateLocation,
         setNaviGateLocation,
         role,
-        roleLoading,
+        cart,
+        setCart,
+        total,
+        setTotal,
         paymentObject,
         setPaymentObject
     }

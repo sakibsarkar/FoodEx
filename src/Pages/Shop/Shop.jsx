@@ -1,6 +1,9 @@
 import "./Shop.css";
+import CartDisplay from "../../Components/CartDisplay/CartDisplay";
+import ItemsCard from "../../Cards/ItemsCard/ItemsCard";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import { iterate } from "localforage";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -17,6 +20,16 @@ const Shop = () => {
         queryFn: async () => {
             const { data: result } = await axios(`/shop?vendor_id=${vendor_id}`)
             return result
+        }
+    })
+
+
+    const { data: items } = useQuery({
+        queryKey: ["vendorItem", selectedCategory],
+        queryFn: async () => {
+            const { data: itemResult } = await axios.get(`/shop_items?category=${selectedCategory}&&id=${vendor_id}`)
+
+            return itemResult
         }
     })
 
@@ -47,7 +60,15 @@ const Shop = () => {
                     </div>
                 </div>
 
+                <div className="vendor_items">
+                    {
+                        items?.map((item) => <ItemsCard key={item._id} data={item} />)
+                    }
+                </div>
+
             </div>
+
+            <CartDisplay />
         </div>
     );
 };

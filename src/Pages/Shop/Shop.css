@@ -3,11 +3,12 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    gap: 20px;
     align-items: flex-start;
 }
 
 .shop_wrapper {
-    width: 1300px;
+    width: 1150px;
     min-height: 100vh;
     box-shadow: 0 2px 16.8px 3.2px #00264214
 }
@@ -86,4 +87,12 @@
 .available_category .active {
     background-color: #da1481 !important;
     color: white !important;
+}
+
+
+.vendor_items {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    gap: 20px;
+    justify-content: center;
 }

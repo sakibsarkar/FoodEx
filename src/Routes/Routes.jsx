@@ -1,5 +1,6 @@
 import AdminPrivate from "../Components/PrivateRoutes/AdminPrivate";
 import AllFoods from "../Pages/AllFoods/AllFoods";
+import Checkout from "../Pages/Checkout/Checkout";
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path: "/shop/:vendor_id",
                 element: <UserPrivate><Shop /></UserPrivate>
+            },
+            {
+                path: '/payment',
+                element: <UserPrivate><Checkout /></UserPrivate>
             }
         ]
     },

@@ -1,12 +1,14 @@
 import "./CartDisplay.css";
 import { useContext, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { Mycontext } from "../../Authcontext/Authcontext";
 import { countTotal } from "../../Hooks & Functions/countTotal";
 
 const CartDisplay = () => {
     const { cart, setCart, total, setTotal } = useContext(Mycontext)
 
+    const navigate = useNavigate()
 
     const handleRemove = (itemIndex) => {
         let replica = [...cart]
@@ -18,6 +20,15 @@ const CartDisplay = () => {
 
     const isEmpty = cart.length < 1 ? true : false
 
+
+
+    const handleProcced = async () => {
+        if (isEmpty) {
+            return
+        }
+
+        navigate("/payment")
+    }
 
     return (
         <div className="cart_display">
@@ -54,7 +65,7 @@ const CartDisplay = () => {
 
             <div className="cartBottom">
                 <h2>Total : <span>{total}Tk</span></h2>
-                <button disabled={isEmpty}>Procced</button>
+                <button disabled={isEmpty} onClick={handleProcced}>Procced</button>
             </div>
 
         </div >

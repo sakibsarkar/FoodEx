@@ -1,0 +1,117 @@
+.result,
+.error {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: #e4584c;
+}
+
+.result {
+    color: #666ee8;
+}
+
+.StripeElement,
+.StripeElementIdeal,
+.StripeElementP24,
+.StripeElementEPS,
+.StripeElementFpx {
+    display: block;
+    margin: 10px 0 20px 0;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 4px;
+    background: #eaeaea;
+}
+
+.StripeElement--focus,
+.StripeElementIdeal--focus,
+.StripeElementP24--focus,
+.StripeElementEPS--focus,
+.StripeElementFpx--focus {
+    box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px,
+        rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
+    -webkit-transition: all 150ms ease;
+    transition: all 150ms ease;
+}
+
+
+
+.StripeElement.loading {
+    height: 41.6px;
+    opacity: 0.6;
+}
+
+.StripeElementIdeal,
+.StripeElementP24,
+.StripeElementEPS,
+.StripeElementFpx {
+    padding: 0;
+}
+
+
+.reserveForm {
+    position: absolute;
+    background: #b7b7b7;
+    width: 500px;
+    padding: 0 15px;
+
+}
+
+
+/* my style */
+
+
+
+.cardBox {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.cardBox form {
+    width: 500px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cardBox form textarea {
+    width: calc(100% - 5px);
+    font-size: 18px;
+    min-height: 150px;
+    resize: vertical;
+    background-color: #eaeaea;
+    border: none;
+    outline: none;
+    padding: 5px 0 0 5px;
+
+}
+
+
+.cardBox form button {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    background-color: #da1481;
+    cursor: pointer;
+    color: white;
+}
+
+@keyframes spinner {
+    100% {
+        transform: rotate(360deg);
+    }
+}

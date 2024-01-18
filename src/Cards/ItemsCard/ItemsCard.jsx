@@ -10,7 +10,7 @@ const ItemsCard = ({ data }) => {
     const { _id, image, name, price, category, vendor_name, vendor_id, vendor_email, description, delivery_time } = data
     const { cart, setCart, setTotal } = useContext(Mycontext)
     const handleAdd = () => {
-        setCart([...cart, data])
+        setCart([...cart, {name,price,category,vendor_name,vendor_id}])
         const totalPrice = countTotal([...cart, data])
         setTotal(totalPrice)
     }

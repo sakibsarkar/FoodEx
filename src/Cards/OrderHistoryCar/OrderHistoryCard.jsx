@@ -40,10 +40,10 @@ const OrderHistoryCard = ({ data, setShouldOpen, shouldOpen }) => {
                     key={index}
                 >
                     <p>{items?.name}</p>
-                    <p>{items?.price}</p>
+                    <p>৳{items?.price}</p>
                 </div>)}
 
-                <h2>Total: {total}</h2>
+                <h2>Total: ৳{total}</h2>
             </div>
 
 

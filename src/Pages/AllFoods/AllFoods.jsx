@@ -6,11 +6,16 @@ import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { FaFilter } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const AllFoods = () => {
 
     const category = ["All", "Biryani", "Burger", "Pizza", "Momos", "Kebab"]
     const deliveryTimes = ["All", 15, 30, 45, 60]
+
+    const location = useLocation()
+    const queryParams = new URLSearchParams(location.search)
+    const queryValue = queryParams.get("search") || ""
 
     const [selectedCategory, setSelectedCategory] = useState("All")
     const [selectedTime, setSelectedTime] = useState("All")
@@ -19,9 +24,9 @@ const AllFoods = () => {
     const axios = UseAxios()
 
     const { data = [], isLoading } = useQuery({
-        queryKey: ["allfoods", selectedCategory, maxValue, minValue, selectedTime],
+        queryKey: ["allfoods", selectedCategory, maxValue, minValue, selectedTime, queryValue],
         queryFn: async () => {
-            const { data: foodData } = await axios.get(`/allfoods?limit=${12}&&currentPage=${0}&&category=${selectedCategory}&&min=${minValue}&&max=${maxValue}&&time=${selectedTime}`)
+            const { data: foodData } = await axios.get(`/allfoods?limit=${12}&&currentPage=${0}&&category=${selectedCategory}&&min=${minValue}&&max=${maxValue}&&time=${selectedTime}&&search=${queryValue}`)
             return foodData
         }
     })

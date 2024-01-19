@@ -1,0 +1,35 @@
+.suggestion_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 43px;
+    background-color: white;
+    box-shadow: 0 2px 16.8px 3.2px #00264214;
+    max-height: 330px;
+    overflow-y: auto;
+    z-index: 99;
+    border-radius: 5px;
+
+}
+
+.suggestion_container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.suggestion_container::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    border-radius: 5px;
+}
+
+.suggestion_container p {
+    padding: 10px 0;
+    width: calc(100% - 10px);
+    cursor: pointer;
+    text-align: left;
+    color: #363636;
+    ;
+    padding: 10px 0 10px 10px;
+}

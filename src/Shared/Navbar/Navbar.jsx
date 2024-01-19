@@ -1,7 +1,9 @@
 import "./Navbar.css";
+import SearchSuggestion from "../../Components/SearchSuggestion/SearchSuggestion";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import UseAxios from "../../Hooks & Functions/useAxios";
-import { useContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useContext, useRef, useState } from "react";
 import { BiHomeHeart } from "react-icons/bi";
 import { CiHeart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
@@ -21,11 +23,10 @@ import { Mycontext } from "../../Authcontext/Authcontext";
 const Navbar = () => {
 
     const [showDropdown, setShowDropdown] = useState(false)
-
-
     const { user, logOut, role } = useContext(Mycontext)
-
     const userName = user?.displayName?.split(" ")[0]
+
+
 
     const axios = UseAxios()
 
@@ -49,6 +50,11 @@ const Navbar = () => {
             }
         });
     }
+
+
+
+
+
 
     return (
         <nav className="navbar">
@@ -124,10 +130,7 @@ const Navbar = () => {
                         <NavLink to={"/delivery"} className={"navlinks"}><GiScooter />Delivery</NavLink>
                         <NavLink to={"/restaurants"} className={"navlinks"}><FaShop />Restaurants</NavLink>
                     </div>
-                    <div className="searchBar">
-                        <input type="text" placeholder="Biriyani near me" />
-                        <button>Find food</button>
-                    </div>
+                    <SearchSuggestion />
 
                     <div className="actionButtons">
                         <NavLink to={"/cart"}><IoCartOutline /></NavLink>

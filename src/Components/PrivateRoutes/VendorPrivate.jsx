@@ -1,3 +1,4 @@
+import Loader from "../Loader/Loader";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { Mycontext } from "../../Authcontext/Authcontext";
@@ -5,7 +6,7 @@ import { Mycontext } from "../../Authcontext/Authcontext";
 const VendorPrivate = ({ children }) => {
     const { user, loading, role } = useContext(Mycontext)
     if (loading) {
-        return <div>Loading ....</div>
+        return <Loader/>
     }
 
     if (!user) {

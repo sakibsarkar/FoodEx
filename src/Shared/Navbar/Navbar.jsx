@@ -78,7 +78,7 @@ const Navbar = () => {
 
                                 <div className={showDropdown ? "userDropDown showDropdown" : "userDropDown"} >
                                     <Link><CiUser />Profile</Link>
-                                    <Link><LiaFileInvoiceDollarSolid />Order History</Link>
+                                    <Link to={"/orderHistory"}><LiaFileInvoiceDollarSolid />Order History</Link>
                                     <Link><LiaUserEditSolid />Update Profile</Link>
 
                                     {

@@ -1,0 +1,40 @@
+.order_history_container {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 150px 0 0;
+}
+
+
+.order_history_container .no_data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order_history_container .no_data img {
+    width: 350px;
+}
+
+
+.order_history_container .no_data a {
+    background: #da1481;
+    color: white;
+    padding: 9px 31px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.history_cards_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+}

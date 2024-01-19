@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
 import ManageShop from "../DashboardPages/Vendor/ManageShop/ManageShop";
+import OrderHistory from "../Pages/OrderHistory/OrderHistory";
 import Overview from "../DashboardPages/Vendor/Overview/Overview";
 import PendingOrders from "../DashboardPages/Vendor/PendingOrders/PendingOrders";
 import Shop from "../Pages/Shop/Shop";
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
             {
                 path: '/payment',
                 element: <UserPrivate><Checkout /></UserPrivate>
+            },
+            {
+                path: "/orderHistory",
+                element: <UserPrivate><OrderHistory /></UserPrivate>
             }
         ]
     },

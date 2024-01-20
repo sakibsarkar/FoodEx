@@ -10,12 +10,7 @@
 }
 
 .allFoodContainer::-webkit-scrollbar {
-    width: 5px;
-}
-
-.allFoodContainer::-webkit-scrollbar-thumb {
-    background-color: #8c8c8c;
-    border-radius: 5px;
+    width: 0px;
 }
 
 .filterBar {
@@ -147,3 +142,72 @@
     color: #fc5b63;
 
 }
+
+@media screen and (max-width: 664px) {
+    .foodsContainer {
+        grid-template-columns: repeat(1, 307px);
+
+    }
+
+    .allFoodContainer {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width: fit-content;
+        margin: auto;
+    }
+
+    .filterBar {
+        height: auto;
+        gap: 20px;
+        width: calc(95% - 48px);
+    }
+}
+
+@media screen and (min-width: 664px) and (max-width: 1008px) {
+    .foodsContainer {
+        grid-template-columns: repeat(2, 307px);
+
+    }
+
+    .allFoodContainer {
+        flex-direction: column;
+        height: auto;
+        width: fit-content;
+        margin: auto;
+    }
+
+    .filterBar {
+        height: 250px;
+        width: calc(100% - 48px);
+    }
+}
+
+@media screen and (min-width: 1008px) and (max-width: 1064px) {
+    .foodsContainer {
+        grid-template-columns: repeat(3, 307px);
+
+    }
+
+    .allFoodContainer {
+        flex-direction: column;
+        height: auto;
+        width: fit-content;
+        margin: auto;
+    }
+
+    .filterBar {
+        height: 250px;
+        width: calc(100% - 48px);
+    }
+
+
+}
+
+@media screen and (min-width: 1064px) and (max-width: 1390px) {
+    .foodsContainer {
+        grid-template-columns: repeat(2, 307px);
+    }
+}
+
+@media screen and (min-width: 1921px) {}

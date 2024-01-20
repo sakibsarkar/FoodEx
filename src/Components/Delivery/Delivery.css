@@ -58,3 +58,48 @@
     box-shadow: inset 95px 0 #f53b85;
     color: white;
 }
+
+
+
+
+@media screen and (max-width: 717px) {
+
+    .deliveryContainer {
+        width: 95vw;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .graphic {
+        min-width: 300px;
+        height: 300px;
+    }
+
+    .graphic img {
+        width: 198px;
+    }
+
+}
+
+@media screen and (min-width: 717px) and (max-width: 830px) {
+    .deliveryContainer {
+        width: 95vw;
+    }
+
+    .graphic {
+        min-width: 300px;
+        height: 300px;
+    }
+
+    .graphic img {
+        width: 198px;
+    }
+}
+
+@media screen and (min-width: 830px) and (max-width: 1340px) {
+    .deliveryContainer {
+        width: 90vw;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

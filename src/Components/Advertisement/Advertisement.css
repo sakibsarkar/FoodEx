@@ -34,3 +34,52 @@
     border: 1px solid #f840a5;
     background-color: transparent;
 }
+
+
+
+@media screen and (max-width: 400px) {}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {}
+
+@media screen and (min-width: 21px) and (max-width: 618px) {
+
+    .addContaier {
+        width: 95vw;
+        height: 300px;
+    }
+
+    .addCotent {
+        width: 95vw;
+        height: 300px;
+    }
+
+    .addCotent h1 {
+        font-size: 30px;
+    }
+
+}
+
+@media screen and (min-width: 618px) and (max-width: 1045px) {
+    .addContaier {
+        width: 95vw;
+        height: 300px;
+    }
+
+    .addCotent {
+        width: 95vw;
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: 1045px) and (max-width: 1340px) {
+
+    .addContaier {
+        width: 95vw;
+    }
+
+    .addCotent {
+        width: 95vw;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

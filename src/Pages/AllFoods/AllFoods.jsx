@@ -97,7 +97,7 @@ const AllFoods = () => {
             </div>
 
             {
-                data?.length == 0
+                data?.length == 0 && !isLoading
                     ?
                     <div className="no-data">
                         <img src="https://i.ibb.co/XZYn8CV/nodata.png" alt="" draggable={false} />

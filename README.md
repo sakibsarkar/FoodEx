@@ -1,6 +1,6 @@
 # Center point - Food Delivery website (Multi vendor)
 ## Live link - [FoodEx](https://foodex-82499.web.app/)
-## 🔗 Server side repository - [FoodEx_server(https://github.com/sakibsarkar/FoodEx_server)
+## 🔗 Server side repository - [FoodEx_server](https://github.com/sakibsarkar/FoodEx_server)
 
 ### 💡 About this project
 

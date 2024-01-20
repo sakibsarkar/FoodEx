@@ -46,11 +46,12 @@
 @media screen and (max-width: 660px) {
     .bannerContainer {
         width: 95vw;
+        height: 250px;
         padding: 0 0 0 13px;
     }
 
     .bannerContainer h1 {
-        font-size: 35px;
+        font-size: 28px;
     }
 
     .bannerContainer p {

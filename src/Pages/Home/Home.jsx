@@ -22,8 +22,7 @@ const Home = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["biryani"],
         queryFn: async () => {
-            // const res = await fetch("http://localhost:5000/api/food?limit=4&&category=biryani")
-            // const result = res.json()
+        
             const { data: biryaniData } = await axios.get("/food?limit=4&&category=biryani")
             setBiryani(biryaniData)
 
@@ -32,7 +31,7 @@ const Home = () => {
 
             const { data: burgerData } = await axios.get("/food?limit=4&&category=burger")
             setBurger(burgerData)
-            return []
+            return burgerData
 
         }
     })
@@ -66,10 +65,10 @@ const Home = () => {
                 <FaRegArrowAltCircleUp />
             </div>
             <Banner />
-            <DisplayItems heading={"Biryani"} itemData={biryani} />
-            <DisplayItems heading={"Kebab"} itemData={kebab} />
-            <DisplayItems heading={"Burger"} itemData={burger} />
-            <Link className="viewMore">Find More <IoFastFoodOutline /></Link>
+            <DisplayItems heading={"Biryani"} itemData={biryani} isLoading={isLoading} />
+            <DisplayItems heading={"Kebab"} itemData={kebab} isLoading={isLoading} />
+            <DisplayItems heading={"Burger"} itemData={burger} isLoading={isLoading} />
+            <Link className="viewMore" to={"/delivery"}>Find More <IoFastFoodOutline /></Link>
             <Advertisement />
             <Delivery />
         </div >

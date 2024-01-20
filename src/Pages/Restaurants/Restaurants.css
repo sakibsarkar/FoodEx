@@ -1,0 +1,18 @@
+.restaurant_container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.restaurant_container .restaurant_cards_con {
+    min-height: 70vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 550px);
+    gap: 20px;
+    justify-content: center;
+}

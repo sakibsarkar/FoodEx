@@ -9,6 +9,7 @@ import ManageShop from "../DashboardPages/Vendor/ManageShop/ManageShop";
 import OrderHistory from "../Pages/OrderHistory/OrderHistory";
 import Overview from "../DashboardPages/Vendor/Overview/Overview";
 import PendingOrders from "../DashboardPages/Vendor/PendingOrders/PendingOrders";
+import Restaurants from "../Pages/Restaurants/Restaurants";
 import Shop from "../Pages/Shop/Shop";
 import Signup from "../Pages/Signup/Signup";
 import UserPrivate from "../Components/PrivateRoutes/UserPrivate";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: "/delivery",
                 element: <AllFoods />
+            },
+            {
+                path: "/restaurants",
+                element: <Restaurants />
             },
             {
                 path: "/becomeVendor",

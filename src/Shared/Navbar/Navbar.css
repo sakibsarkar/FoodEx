@@ -106,7 +106,7 @@
     height: 0px;
     overflow: hidden;
     transition: 0.3s;
-    width: 100%;
+    width: calc(100% + 25px);
 }
 
 .showDropdown {
@@ -248,3 +248,80 @@
     color: #da1481;
     font-size: 25px;
 }
+
+
+
+
+@media screen and (max-width: 630px) {
+    .navbarTop .address {
+        display: none;
+    }
+
+    .navbarContainer {
+        width: 90vw;
+    }
+
+    .navbarBottom .searchBar {
+        width: 100%;
+    }
+
+    .actionButtons {
+        display: none;
+    }
+
+    .navbarBottom {
+        flex-direction: column-reverse;
+    }
+
+}
+
+@media screen and (min-width: 630px) and (max-width: 800px) {
+    .navbarContainer {
+        width: 90vw;
+    }
+
+    .navbarBottom .searchBar {
+        width: 100%;
+    }
+
+    .actionButtons {
+        display: none;
+    }
+
+    .navbarBottom {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 932px) {
+
+    .navbarContainer {
+        width: 90vw;
+    }
+
+    .navbarBottom .searchBar {
+        width: 50%;
+    }
+
+    .actionButtons {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 932px) and (max-width: 1140px) {
+    .navbarContainer {
+        width: 90vw;
+    }
+
+    .navbarBottom .searchBar {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1140px) and (max-width: 1340px) {
+    .navbarContainer {
+        width: 90vw;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

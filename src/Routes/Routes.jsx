@@ -2,6 +2,7 @@ import AdminPrivate from "../Components/PrivateRoutes/AdminPrivate";
 import AllFoods from "../Pages/AllFoods/AllFoods";
 import Checkout from "../Pages/Checkout/Checkout";
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",

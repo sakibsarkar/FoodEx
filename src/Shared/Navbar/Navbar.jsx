@@ -133,7 +133,7 @@ const Navbar = () => {
                     <SearchSuggestion />
 
                     <div className="actionButtons">
-                        <NavLink to={"/cart"}><IoCartOutline /></NavLink>
+                        <NavLink to={"/"}><IoCartOutline /></NavLink>
                         <NavLink to={"/fav"}><CiHeart /></NavLink>
                     </div>
                 </div>

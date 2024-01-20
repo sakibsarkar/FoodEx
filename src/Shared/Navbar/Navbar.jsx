@@ -130,6 +130,8 @@ const Navbar = () => {
                         <NavLink to={"/delivery"} className={"navlinks"}><GiScooter />Delivery</NavLink>
                         <NavLink to={"/restaurants"} className={"navlinks"}><FaShop />Restaurants</NavLink>
                     </div>
+
+
                     <SearchSuggestion />
 
                     <div className="actionButtons">

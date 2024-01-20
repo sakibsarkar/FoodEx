@@ -42,6 +42,7 @@ const SearchSuggestion = () => {
         }
 
         if (event.keyCode === 13) {
+            inputRef.current.blur()
             navigate(`/delivery?search=${value}`)
             setSuggetion([])
             return
@@ -62,9 +63,18 @@ const SearchSuggestion = () => {
 
         setSuggetion([])
         navigate(`/delivery?search=${value}`)
+        inputRef.current.blur()
         inputRef.current.value = value
     }
 
+
+    const handleSearchButton = () => {
+        setSuggetion([])
+        const value = inputRef.current.value
+        navigate(`/delivery?search=${value}`)
+        inputRef.current.blur()
+        inputRef.current.value = value
+    }
 
     return (
         <>
@@ -75,7 +85,7 @@ const SearchSuggestion = () => {
                     ref={inputRef}
 
                 />
-                <button>Find food</button>
+                <button onClick={handleSearchButton}>Find food</button>
                 {
                     suggetion?.length > 0 ?
                         <div className="suggestion_container">

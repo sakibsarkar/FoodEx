@@ -1,8 +1,38 @@
-# React + Vite
+# Center point - Food Delivery website (Multi vendor)
+## Live link - [FoodEx](https://foodex-82499.web.app/)
+## 🔗 Server side repository - [FoodEx_server(https://github.com/sakibsarkar/FoodEx_server)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 💡 About this project
 
-Currently, two official plugins are available:
+FoodEx is a seamless platform for users to effortlessly order from diverse vendors. Users have the option to become vendors. Behind the scenes, admins play a crucial role, reviewing and either accepting or rejecting vendor requests. Vendors, once approved, gain the ability to create and manage their unique food items, offering a dynamic and varied menu for users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🪶 Features
+- From vendor dashboard vendors can manage their product and view their pending orders
+- Any normal user can submit a form to become vendor
+- From the admin dashboard admin can manage all vendor requests and can reject or accept the request.
+- Ther is a searchbar to search food. and the search bar has search suggetion.
+- Multiple Filtering method
+- User can visit Vendor profile and order food from the vendor
+
+
+# ⚙️ Technology used in this project
+### Frontend
+ - React
+ - React Router Dom
+ - CSS3
+ - Javascript
+ - Axios
+ - Tanstack Query
+ - Firebase
+ 
+
+ ### Backend
+  - MongoDB
+  - JSON Web Token (JWT)
+  - Node JS
+  - Express JS
+  - CORS
+
+
+
+## 

@@ -11,7 +11,7 @@ const FoodCard = ({ data = {} }) => {
         <Link className="foodCard" to={`/shop/${vendor_id}`}>
             <p className="favIcon"><FaRegHeart /></p>
             <div className="foodImg" >
-                <img src={image} alt="" draggable={false} />
+                <img src={image} alt="" draggable={false} className="foodImage" />
             </div>
             <div className="infoWrapper">
                 <h1>{name}</h1>

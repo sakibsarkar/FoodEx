@@ -6,6 +6,15 @@
     position: relative;
 }
 
+
+.foodCard:hover {
+    border: 1px solid #f958b0;
+}
+
+.foodCard:hover .foodImage {
+    transform: scale(1.1);
+}
+
 .favIcon {
     position: absolute;
     top: 10px;
@@ -20,6 +29,7 @@
     cursor: pointer;
     align-items: center;
     transition: 0.2s;
+    z-index: 99;
     color: #f958b0;
 }
 
@@ -27,15 +37,18 @@
     padding: 2px;
 }
 
+
 .foodCard .foodImg {
     width: 100%;
     height: 200px;
+    overflow: hidden;
 
 }
 
-.foodCard .foodImg img {
+.foodCard .foodImg .foodImage {
     object-fit: cover;
     height: 100%;
+    transition: 0.2s;
     width: 100%;
 }
 

@@ -1,11 +1,13 @@
 .restaurant_container {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 50px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px 20px;
+    text-align: center;
 }
 
 .restaurant_container .restaurant_cards_con {
@@ -16,3 +18,29 @@
     gap: 20px;
     justify-content: center;
 }
+
+
+
+@media screen and (max-width: 400px) {}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {}
+
+@media screen and (min-width: 50px) and (max-width: 570px) {
+    .restaurant_container .restaurant_cards_con {
+        grid-template-columns: repeat(1, 95vw);
+    }
+}
+
+@media screen and (min-width: 570px) and (max-width: 1150px) {
+    .restaurant_container .restaurant_cards_con {
+        grid-template-columns: repeat(1, 550px);
+    }
+}
+
+@media screen and (min-width: 1150px) and (max-width: 1700px) {
+    .restaurant_container .restaurant_cards_con {
+        grid-template-columns: repeat(2, 550px);
+    }
+}
+
+@media screen and (min-width: 1921px) {}

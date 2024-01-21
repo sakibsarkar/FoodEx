@@ -96,3 +96,27 @@
 .loginLeft p {
     width: 90%;
 }
+
+
+
+@media screen and (max-width: 585px) {
+    .loginBox {
+        width: 95vw;
+    }
+
+    .loginLeft {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 585px) and (max-width: 940px) {
+    .loginBox {
+        width: 95vw;
+    }
+
+    .loginLeft {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

@@ -40,11 +40,3 @@
 }
 
 
-
-@media screen and (max-width: 810px) {
-    .historyCard {
-        width: 90vw;
-    }
-}
-
-@media screen and (min-width: 1921px) {}

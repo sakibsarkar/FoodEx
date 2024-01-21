@@ -79,3 +79,20 @@
     border-radius: 5px;
     color: white;
 }
+
+
+
+
+@media screen and (max-width: 576px) {
+    .signupContainer form {
+        width: calc(95vw - 30px);
+        padding: 0 15px;
+        min-height: 583px;
+    }
+
+    .signupContainer form .photoFeild {
+        height: 100px;
+    }
+}
+
+@media screen and (min-width: 1921px) {}

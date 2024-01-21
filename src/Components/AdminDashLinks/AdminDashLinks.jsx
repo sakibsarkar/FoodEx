@@ -7,12 +7,9 @@ const AdminDashLinks = () => {
     return <>
         <NavLink to={"/dashboard/admin"}><GoGitPullRequest />Vendor Requests</NavLink>
 
-        <NavLink to={"/dashboard/myshop"}><FaShopLock />My shop</NavLink>
-
         <NavLink to={"/dashboard/users"}><FaRegUser />All User</NavLink>
 
-        <NavLink to={"/dashboard/members"}><FaUserTie />All Vendor</NavLink>
-
+        <NavLink to={"/dashboard/myshop"}><FaShopLock />My shop</NavLink>
     </>
 };
 

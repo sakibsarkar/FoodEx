@@ -1,5 +1,6 @@
 import AdminPrivate from "../Components/PrivateRoutes/AdminPrivate";
 import AllFoods from "../Pages/AllFoods/AllFoods";
+import AllUser from "../DashboardPages/Admin/AllUser/AllUser";
 import Checkout from "../Pages/Checkout/Checkout";
 import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
@@ -67,9 +68,14 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: <DashboardLayout />,
         children: [
+            // admin Routes
             {
                 path: "/dashboard/admin",
                 element: <AdminPrivate><VendorReq /></AdminPrivate>
+            },
+            {
+                path: "/dashboard/users",
+                element: <AdminPrivate><AllUser /></AdminPrivate>
             },
             // vendor routes
             {

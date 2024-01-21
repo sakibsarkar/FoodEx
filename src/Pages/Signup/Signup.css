@@ -90,6 +90,12 @@
         min-height: 583px;
     }
 
+    .signupContainer form .eye {
+        position: absolute;
+        right: 27px;
+        bottom: 204px;
+    }
+
     .signupContainer form .photoFeild {
         height: 100px;
     }

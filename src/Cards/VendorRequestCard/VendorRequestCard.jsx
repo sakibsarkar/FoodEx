@@ -9,13 +9,12 @@ import { toast } from "sonner";
 
 const VendorRequestCard = ({ data, refetch }) => {
     const { _id, owner_name, owner_email, vendor_name, logo, banner, status } = data
-
     const [processing, setProcessing] = useState(false)
 
     const axios = UseAxios()
 
     const handleAction = async (action) => {
-        if (processing) {
+        if (processing || status !== "pending") {
             return;
         }
 
@@ -85,10 +84,27 @@ const VendorRequestCard = ({ data, refetch }) => {
                 </p>
             </div>
             <div className="reqActionBtn">
-                <button onClick={() => handleAction("rejected")}><RxCrossCircled />Reject</button>
-                <button style={{ background: "#1f68ff", color: "white" }}
-                    onClick={() => handleAction("accepted")}
-                ><FaHandshake />Accept</button>
+
+
+
+                {
+                    status !== "accepted" ? <>
+                        <button
+                            style={{ background: "#1f68ff", color: "white" }}
+                            onClick={() => handleAction("accepted")}>
+                            <FaHandshake />Accept
+                        </button>
+
+                        <button
+                            onClick={() => handleAction("rejected")}>
+                            <RxCrossCircled />Reject
+                        </button>
+
+                    </>
+                        :
+                        ""
+
+                }
             </div>
 
         </div>

@@ -65,9 +65,22 @@
 .signupContainer form .photoFeild {
     width: calc(100% - 9px) !important;
     height: 133px;
-    padding: 8px 0 0 9px;
     border: 2px dashed #da1481;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
+
+.signupContainer form .photoFeild img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
 
 
 .signupContainer form button {

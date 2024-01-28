@@ -7,3 +7,10 @@
     list-style: none;
     font-family: 'Work Sans', sans-serif;
 }
+
+.imgSelector {
+    opacity: 0;
+    width: 0 !important;
+    position: absolute;
+    padding: 0 !important;
+}

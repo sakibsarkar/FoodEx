@@ -22,7 +22,6 @@ const Home = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["biryani"],
         queryFn: async () => {
-        
             const { data: biryaniData } = await axios.get("/food?limit=4&&category=biryani")
             setBiryani(biryaniData)
 

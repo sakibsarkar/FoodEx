@@ -21,23 +21,34 @@ const AllFoods = () => {
     const [selectedTime, setSelectedTime] = useState("All")
     const [minValue, set_minValue] = useState(0);
     const [maxValue, set_maxValue] = useState(1000);
+    const [currentPage, setCurrentPage] = useState(0)
+
+    const [totalData, setTotalData] = useState(12)
     const axios = UseAxios()
 
     const { data = [], isLoading } = useQuery({
-        queryKey: ["allfoods", selectedCategory, maxValue, minValue, selectedTime, queryValue],
+        queryKey: ["allfoods", selectedCategory, maxValue, minValue, selectedTime, queryValue, currentPage],
         queryFn: async () => {
-            const { data: foodData } = await axios.get(`/allfoods?limit=${12}&&currentPage=${0}&&category=${selectedCategory}&&min=${minValue}&&max=${maxValue}&&time=${selectedTime}&&search=${queryValue}`)
-            return foodData
+            const { data: foodData } = await axios.get(`/allfoods?limit=${12}&&currentPage=${currentPage}&&category=${selectedCategory}&&min=${minValue}&&max=${maxValue}&&time=${selectedTime}&&search=${queryValue}`)
+
+            setTotalData(foodData.totalData)
+
+            return foodData.result
         }
     })
 
 
 
     const handleInput = (e) => {
-        set_minValue(e.minValue);
-        set_maxValue(e.maxValue);
+        const min = e.minValue
+        const max = e.maxValue
+        if (min === minValue && max === maxValue) {
+            return
+        }
+        set_minValue(min);
+        set_maxValue(max);
+        setCurrentPage(0)
     };
-
 
     return (
         <div className="allFoodContainer">
@@ -51,7 +62,10 @@ const AllFoods = () => {
 
                     <div>
                         {category.map((item, index) => <button key={index}
-                            onClick={() => setSelectedCategory(item)}
+                            onClick={() => {
+                                setSelectedCategory(item)
+                                setCurrentPage(0)
+                            }}
                             className={selectedCategory === item ? "categorySelected" : ""}
                         >{item}</button>)}
                     </div>
@@ -66,9 +80,7 @@ const AllFoods = () => {
                         step={5}
                         minValue={minValue}
                         maxValue={maxValue}
-                        onInput={(e) => {
-                            handleInput(e);
-                        }}
+                        onInput={(e) => handleInput(e)}
                         style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
                         ruler={false}
                         thumbLeftColor="#da1481"
@@ -87,8 +99,26 @@ const AllFoods = () => {
                             deliveryTimes.map((time, index) => <button
                                 key={index}
                                 className={selectedTime === time ? "timeSelected" : ""}
-                                onClick={() => setSelectedTime(time)}
+                                onClick={() => {
+                                    setSelectedTime(time)
+                                    setCurrentPage(0)
+                                }}
                             >{time} {time !== "All" && "min"}</button>)
+                        }
+                    </div>
+                </div>
+
+                <div className="pagination">
+
+                    <p>Go to page: </p>
+                    <div className="page_btns">
+                        {
+                            Array(Math.ceil(totalData / 12)).fill("").map((_, index) => <button
+                                key={index}
+                                onClick={() => setCurrentPage(index)}
+                                className={currentPage === index ? "current_page" : ""}                            >
+                                {index + 1}
+                            </button>)
                         }
                     </div>
                 </div>
@@ -104,6 +134,7 @@ const AllFoods = () => {
                         <h1>Opps ! Sorry we don't have any data for this.</h1>
                     </div>
                     :
+
                     <div className="foodsContainer">
 
                         {
@@ -126,6 +157,11 @@ const AllFoods = () => {
 
                         }
                     </div>
+
+
+
+
+
             }
         </div>
     );

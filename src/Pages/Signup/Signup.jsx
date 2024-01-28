@@ -8,12 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
 import { addUser } from "../../Hooks & Functions/addUser";
+import { local_img_url } from "../../Hooks & Functions/local_img_url";
 import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const Signup = () => {
 
     const { createAccountWithEmail, logOut, user: mainUser } = useContext(Mycontext)
     const [showPass, setShowPass] = useState(false)
+    const [preview, setPreview] = useState("")
 
     const navigate = useNavigate()
 
@@ -95,6 +97,15 @@ const Signup = () => {
     }
 
 
+    const previewImf = async (e) => {
+        const file = e.target.files[0]
+        const url = await local_img_url(file)
+        setPreview(url)
+
+
+    }
+
+
 
     return (
         <div className="signupContainer">
@@ -104,7 +115,8 @@ const Signup = () => {
                     <input type="text" placeholder="Your first name" name="Fname" required />
                     <input type="text" placeholder="Your last name" name="Lname" required />
                 </div>
-                <input type="file" accept="image/*" placeholder="Your email Adress" name="photo" required className="photoFeild" />
+                <input type="file" accept="image/*" placeholder="Your email Adress" name="photo" required className="photoFeild" onChange={previewImf} />
+                <img src={preview} alt="" />
                 <input type="text" placeholder="Your email Adress" name="email" required />
                 <input type={showPass ? "text" : "password"} placeholder="Create your password" name="password" required />
                 <div className="eye" onClick={() => setShowPass(!showPass)}>

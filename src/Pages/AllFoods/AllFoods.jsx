@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 
 const AllFoods = () => {
 
@@ -49,6 +50,16 @@ const AllFoods = () => {
         set_maxValue(max);
         setCurrentPage(0)
     };
+
+    const handleCurrentPage = (page) => {
+        const options = {
+            duration: 400,
+            smooth: true,
+        };
+        setCurrentPage(page)
+        animateScroll.scrollToTop(options)
+
+    }
 
     return (
         <div className="allFoodContainer">
@@ -115,7 +126,7 @@ const AllFoods = () => {
                         {
                             Array(Math.ceil(totalData / 12)).fill("").map((_, index) => <button
                                 key={index}
-                                onClick={() => setCurrentPage(index)}
+                                onClick={() => handleCurrentPage(index)}
                                 className={currentPage === index ? "current_page" : ""}                            >
                                 {index + 1}
                             </button>)

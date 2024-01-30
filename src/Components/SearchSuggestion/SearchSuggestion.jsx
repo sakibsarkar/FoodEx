@@ -2,7 +2,7 @@ import "./SearchSuggestion.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const SearchSuggestion = () => {
     const axios = UseAxios()
@@ -12,6 +12,10 @@ const SearchSuggestion = () => {
     const [suggetion, setSuggetion] = useState([])
 
     const inputRef = useRef(null)
+    const location = useLocation()
+    const queryParams = new URLSearchParams(location.search)
+    const searchDefaultValue = queryParams.get("search") || ""
+
 
 
     const { data } = useQuery({
@@ -38,6 +42,8 @@ const SearchSuggestion = () => {
         let value = event?.target?.value.toLowerCase() || ""
 
         if (value === "") {
+            navigate(`/delivery?search=${value}`)
+            setSuggetion([])
             return setSuggetion("")
         }
 
@@ -76,6 +82,7 @@ const SearchSuggestion = () => {
         inputRef.current.value = value
     }
 
+
     return (
         <>
 
@@ -83,6 +90,7 @@ const SearchSuggestion = () => {
                 <input type="text" placeholder="Biriyani near me"
                     onKeyUp={handleSearch}
                     ref={inputRef}
+                    defaultValue={searchDefaultValue}
 
                 />
                 <button onClick={handleSearchButton}>Find food</button>

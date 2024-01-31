@@ -3,11 +3,27 @@ import CartDisplay from "../../Components/CartDisplay/CartDisplay";
 import ItemsCard from "../../Cards/ItemsCard/ItemsCard";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Mycontext } from "../../Authcontext/Authcontext";
 
 const Shop = () => {
+    const { cart, setCart } = useContext(Mycontext)
+
     const { vendor_id } = useParams()
+
+    // clearing the cart for previous item from different vendor
+    useEffect(() => {
+        const cartFirstItem = cart[0] || {}
+        if (cartFirstItem.vendor_id && (cartFirstItem?.vendor_id !== vendor_id)) {
+            setCart([])
+        }
+    }, [vendor_id, setCart, cart])
+
+    // console.log(cartFirstItem && (cartFirstItem?.vendor_id !== vendor_id));
+    // console.log(cartFirstItem, cartFirstItem?.vendor_id, vendor_id);
+
+
     window.scroll(0, 0)
 
     const [selectedCategory, setSelectedCategory] = useState("All")

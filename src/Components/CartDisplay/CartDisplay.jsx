@@ -1,7 +1,7 @@
 import "./CartDisplay.css";
 import { useContext, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Mycontext } from "../../Authcontext/Authcontext";
 import { countTotal } from "../../Hooks & Functions/countTotal";
 
@@ -9,6 +9,9 @@ const CartDisplay = () => {
     const { cart, setCart, total, setTotal } = useContext(Mycontext)
 
     const navigate = useNavigate()
+    const { vendor_id } = useParams()
+
+ 
 
     const handleRemove = (itemIndex) => {
         let replica = [...cart]

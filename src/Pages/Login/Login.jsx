@@ -3,7 +3,7 @@ import SocialAuth from "../../Components/SocialAuth/SocialAuth";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Mycontext } from "../../Authcontext/Authcontext";
 
 const Login = () => {
@@ -11,8 +11,11 @@ const Login = () => {
 
     const [showPass, setShowPass] = useState(false)
 
+    const navigate = useNavigate()
     const { loginWithEmail, logOut } = useContext(Mycontext)
     const axios = UseAxios()
+    const location = useLocation()
+    const adress = location.state || "/"
 
     const handleLogin = async (e) => {
         e.preventDefault()
@@ -21,6 +24,7 @@ const Login = () => {
         const password = form.password.value
         const { user } = await loginWithEmail(email, password)
         await axios.post("/token", { email: user?.email })
+        navigate(adress)
 
 
     }

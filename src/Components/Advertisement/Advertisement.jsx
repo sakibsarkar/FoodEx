@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const Advertisement = () => {
     return (
-        <div className="addContaier">
+        <div className="addContaier" data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom">
             <Parallax bgImage="https://www.moorni.co.uk/wp-content/uploads/2023/12/indian-food-in-a-restaurant.jpg" strength={500}>
                 <div className="addCotent" data-aos="fade-up">
                     <h1>Eat Food From <br /> Your Fav Restaurant</h1>

@@ -6,7 +6,7 @@ const DisplayItems = ({ heading, itemData = [], isLoading }) => {
 
 
     return (
-        <div className="displayItemContainer">
+        <div className="displayItemContainer" data-aos="fade-up" data-aos-duration="1500">
             <h1>{heading}</h1>
             <div className="itemContainer">
                 {

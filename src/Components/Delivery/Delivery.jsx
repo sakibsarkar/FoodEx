@@ -1,4 +1,5 @@
 import "./Delivery.css";
+import Tilt from "react-parallax-tilt";
 import { RiEBike2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -7,9 +8,11 @@ const Delivery = () => {
 
     return (
         <div className="deliveryContainer">
-            <div className="graphic">
-                <img src="https://i.ibb.co/R42s3Nv/delivery-Guy.png" alt="" />
-            </div>
+            <Tilt>
+                <div className="graphic">
+                    <img src="https://i.ibb.co/R42s3Nv/delivery-Guy.png" alt="" />
+                </div>
+            </Tilt>
 
             <div className="deliveryContent">
                 <h1>You are hungry <br /> we are <span>fast <RiEBike2Fill /></span></h1>

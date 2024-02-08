@@ -10,8 +10,13 @@
     font-size: 21px;
     padding: 7px 25px;
     border-radius: 3px;
+    transition: 0.7s;
 }
 
+.viewMore:hover {
+    background-color: transparent;
+    box-shadow: inset 200px 0 #f840a5;
+}
 
 .scrollToTop {
     position: fixed;

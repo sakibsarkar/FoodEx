@@ -78,7 +78,8 @@ const CheckoutForm = () => {
                 total: total,
                 order_status: "pending",
                 date: date,
-                orderData: cart
+                orderData: cart,
+                vendor_email: cart[0].vendor_email || ""
             }
 
             await axios.post("/placeOrder", orderObj)

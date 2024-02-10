@@ -1,0 +1,36 @@
+.overview_container {
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-direction: column;
+
+
+}
+
+
+.topBox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 17% 25% 55%;
+    justify-content: space-between;
+}
+
+.topBox>div {
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.topBox .box {
+    height: auto;
+    background-color: #1f68ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 25px;
+}

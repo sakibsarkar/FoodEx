@@ -1,16 +1,11 @@
-export const getSalesData = (data = []) => {
-
+export const getAllSalesData = (data = []) => {
     // individual date sales
-    const salesData = {}
+    const salesData = []
 
     for (let sale of data) {
-        if (salesData[sale.date]) {
-            salesData[sale.date] += sale.total
-        }
 
-        else {
-            salesData[sale.date] = sale.total
-        }
+        salesData[sale.date] = sale.total
+
     }
 
     // sales data keys (date of the sale)
@@ -22,4 +17,3 @@ export const getSalesData = (data = []) => {
 
     return graphData
 }
-

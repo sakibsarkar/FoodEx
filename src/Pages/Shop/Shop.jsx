@@ -20,11 +20,7 @@ const Shop = () => {
         }
     }, [vendor_id, setCart, cart])
 
-    // console.log(cartFirstItem && (cartFirstItem?.vendor_id !== vendor_id));
-    // console.log(cartFirstItem, cartFirstItem?.vendor_id, vendor_id);
-
-
-    window.scroll(0, 0)
+    // window.scroll(0, 0)
 
     const [selectedCategory, setSelectedCategory] = useState("All")
 

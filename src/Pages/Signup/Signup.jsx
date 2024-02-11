@@ -13,7 +13,7 @@ import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const Signup = () => {
 
-    const { createAccountWithEmail, logOut, user: mainUser } = useContext(Mycontext)
+    const { createAccountWithEmail, logOut, user: mainUser, setRole } = useContext(Mycontext)
     const [showPass, setShowPass] = useState(false)
     const [preview, setPreview] = useState("")
 
@@ -83,6 +83,7 @@ const Signup = () => {
             toast.success("Successful", {
                 description: `Welcome ${user?.displayName}`
             })
+            setRole("user")
             return navigate(adress)
         }
 

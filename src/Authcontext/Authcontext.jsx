@@ -79,6 +79,7 @@ const Authcontext = ({ children }) => {
         createAccountWithEmail,
         naviGateLocation,
         setNaviGateLocation,
+        setRole,
         role,
         cart,
         setCart,

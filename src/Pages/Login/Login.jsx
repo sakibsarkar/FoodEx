@@ -4,6 +4,7 @@ import UseAxios from "../../Hooks & Functions/useAxios";
 import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
 
 const Login = () => {
@@ -22,9 +23,21 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        const { user } = await loginWithEmail(email, password)
-        await axios.post("/token", { email: user?.email })
-        navigate(adress)
+        const toastId = toast.loading("Please wait a moment...")
+        try {
+            const { user } = await loginWithEmail(email, password)
+            await axios.post("/token", { email: user?.email })
+            toast.dismiss(toastId)
+            navigate(adress)
+        }
+
+        catch (err) {
+            
+            toast.dismiss(toastId)
+            toast.error("Something wen wrong", {
+                description: "Please check your email and password"
+            })
+        }
 
 
     }

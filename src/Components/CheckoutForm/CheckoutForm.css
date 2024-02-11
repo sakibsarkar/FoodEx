@@ -65,6 +65,13 @@
 /* my style */
 
 
+.form_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
 
 .cardBox {
     width: 100%;
@@ -73,6 +80,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    text-align: center;
 }
 
 .cardBox form {
@@ -113,5 +121,28 @@
 @keyframes spinner {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 570px) {
+    .paymentImg {
+        display: none;
+    }
+
+
+    .cardBox form {
+        width: 90vw;
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 570px) and (max-width: 1090px) {
+    .paymentImg {
+        display: none;
     }
 }

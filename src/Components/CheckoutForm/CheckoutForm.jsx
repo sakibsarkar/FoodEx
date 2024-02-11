@@ -106,7 +106,7 @@ const CheckoutForm = () => {
     return (
 
         <div className="cardBox">
-            <div>
+            <div className="form_box">
                 <h1>Confirm Your payment for {total}Tk</h1>
                 <form onSubmit={handlePayment}>
                     <CardElement
@@ -135,7 +135,7 @@ const CheckoutForm = () => {
 
 
 
-            <img src="https://i.ibb.co/QnxwChg/Image-post-bro-removebg-preview.png" alt="" />
+            <img className="paymentImg" src="https://i.ibb.co/QnxwChg/Image-post-bro-removebg-preview.png" alt="" />
         </div>
 
     );

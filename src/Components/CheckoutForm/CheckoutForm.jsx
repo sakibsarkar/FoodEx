@@ -41,6 +41,7 @@ const CheckoutForm = () => {
 
 
         setPaymentLoading(true)
+        const toastId = toast.loading("Proccesing your payment")
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             card: card,
             type: "card"
@@ -49,6 +50,7 @@ const CheckoutForm = () => {
 
         if (error) {
             setPaymentLoading(false)
+            toast.dismiss(toastId)
             console.log(error.message);
             return toast.error("Something went wrong", {
                 description: error.message
@@ -67,6 +69,7 @@ const CheckoutForm = () => {
         })
 
         if (err) {
+            toast.dismiss(toastId)
             return toast.error("Something went wrong")
         }
 
@@ -87,13 +90,12 @@ const CheckoutForm = () => {
             setTotal(0)
             setCart([])
             setPaymentLoading(false)
+            toast.dismiss(toastId)
             toast.success(`${user?.displayName} your order has been placed`, {
                 description: "You will soon get your order"
             })
 
         }
-
-
 
         setPaymentLoading(false)
 

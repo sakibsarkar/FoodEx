@@ -30,13 +30,15 @@ const SocialAuth = () => {
             }
 
             await axios.post("/token", { email: user?.email })
-            await axios.post("/add/user")
+            const { data: response } = await axios.post("/add/user")
             await addUser(user)
+            if (response[1]?.isExist === false) {
+                setRole(user)
+            }
             toast.dismiss(toastId)
             toast.success("Success", {
                 description: `Welcome ${user?.displayName}`
             })
-            setRole("user")
             navigate(address)
         }
 

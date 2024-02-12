@@ -22,7 +22,7 @@ const ManageShop = () => {
 
     return (
         <div className="manage_shop_container">
-            <h1>You shop</h1>
+            <h1 style={{ color: "#dcdcdc" }}>Your shop</h1>
             <div className="my_items">
                 <CreateItem refetch={refetch} />
 

@@ -23,7 +23,7 @@ const PendingOrders = () => {
     return (
         <div className="pendings">
 
-            <h1>Lets finish</h1>
+            <h1 style={{ color: "#dcdcdc" }}>Let's finish</h1>
 
             <div className="pendingContainer">
                 {

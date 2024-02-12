@@ -19,7 +19,7 @@ const AllCompletedOrders = () => {
 
     return (
         <div className="complete_order_page_container">
-            <h1>All Completed Orders</h1>
+            <h1 style={{ color: "#dcdcdc" }}>All Completed Orders</h1>
             <div className="complete_order_container">
                 {
                     data?.map((order) => <CompletedOrderCard key={order?._id} data={order} />)

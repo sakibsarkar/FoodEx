@@ -25,7 +25,7 @@ const VendorReq = () => {
 
     return (
         <div className="reqBoxContainer">
-            <h1>All {status} Requests</h1>
+            <h1 style={{ color: "#dcdcdc" }}>All {status} Requests</h1>
             <div className="requestContainer">
                 <div className="statusBox">
                     {statusArr.map((stat, index) => (

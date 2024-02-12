@@ -9,7 +9,7 @@
     align-items: flex-start;
     gap: 10px;
     background-color: #262831;
-    color: #f3f3f3;
+    color: #c7c7c7;
 
 }
 
@@ -51,4 +51,43 @@
     border-radius: 5px;
     cursor: pointer;
     padding: 7px 0;
+}
+
+
+.itemHolder {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #030303d6;
+}
+
+.itemHolder .orderItems {
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #262831;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+
+.itemHolder .orderItems>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemHolder .orderItems .cross {
+    width: fit-content;
+    cursor: pointer;
 }

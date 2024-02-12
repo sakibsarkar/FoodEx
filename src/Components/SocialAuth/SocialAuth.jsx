@@ -9,7 +9,7 @@ import { addUser } from "../../Hooks & Functions/addUser";
 
 const SocialAuth = () => {
 
-    const { googleAuthentication, gitHubAuthentication, logOut } = useContext(Mycontext)
+    const { googleAuthentication, gitHubAuthentication, logOut, setRole } = useContext(Mycontext)
 
     const navigate = useNavigate()
     const address = "/"
@@ -36,6 +36,7 @@ const SocialAuth = () => {
             toast.success("Success", {
                 description: `Welcome ${user?.displayName}`
             })
+            setRole("user")
             navigate(address)
         }
 

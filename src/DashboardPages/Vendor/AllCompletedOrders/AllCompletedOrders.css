@@ -1,0 +1,18 @@
+.complete_order_page_container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.complete_order_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    justify-content: center;
+    gap: 20px;
+    min-height: 70vh;
+}

@@ -1,0 +1,54 @@
+.completed_card {
+    width: calc(100% - 30px);
+    display: flex;
+    height: 220px;
+    padding: 15px;
+    border-radius: 7px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: #262831;
+    color: #f3f3f3;
+
+}
+
+.completed_card h3 {
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.completed_card h4 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+
+.completed_card h4:hover {
+    text-decoration: underline;
+}
+
+.completed_card p {
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.completed_card button {
+    width: 100%;
+    background-color: #1f68ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 7px 0;
+}

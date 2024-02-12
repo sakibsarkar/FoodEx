@@ -1,4 +1,5 @@
 import AdminPrivate from "../Components/PrivateRoutes/AdminPrivate";
+import AllCompletedOrders from "../DashboardPages/Vendor/AllCompletedOrders/AllCompletedOrders";
 import AllFoods from "../Pages/AllFoods/AllFoods";
 import AllUser from "../DashboardPages/Admin/AllUser/AllUser";
 import Checkout from "../Pages/Checkout/Checkout";
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/pendingOrders",
                 element: <VendorPrivate><PendingOrders /></VendorPrivate>
+            },
+            {
+                path: "/dashboard/completedOrder",
+                element: <VendorPrivate ><AllCompletedOrders /></VendorPrivate>
             }
         ]
     }

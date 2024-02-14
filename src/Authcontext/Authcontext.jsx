@@ -1,6 +1,5 @@
 import UseAxios from "../Hooks & Functions/useAxios";
 import auth from "../FirebaseCnfig";
-import axios from "axios";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 
@@ -73,6 +72,7 @@ const Authcontext = ({ children }) => {
         googleAuthentication,
         gitHubAuthentication,
         setWaitForUser,
+        setUser,
         user,
         logOut,
         loginWithEmail,

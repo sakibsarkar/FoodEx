@@ -28,6 +28,8 @@
 }
 
 .profile_container .profile_card .user_profile_img {
+    display: block;
+    cursor: pointer;
     width: 150px;
     height: 150px;
     position: relative;
@@ -102,4 +104,17 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+}
+
+
+.profile_update {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    background-color: #292d4868;
 }

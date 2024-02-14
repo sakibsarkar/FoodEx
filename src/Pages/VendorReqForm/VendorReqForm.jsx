@@ -90,7 +90,7 @@ const VendorReqForm = () => {
 
                             <div>
                                 <h2>Restaurant logo</h2>
-                                <input type="file" accept="*/image" required
+                                <input type="file" accept="image/*" required
                                     style={{ height: "44px", paddingTop: "21px" }}
                                     name="logo"
                                 />

@@ -27,6 +27,19 @@
     top: 50%;
 }
 
+.profile_card .userName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.profile_card .userName:hover {
+    text-decoration: underline;
+}
+
+
 .profile_container .profile_card .user_profile_img {
     display: block;
     cursor: pointer;
@@ -34,7 +47,7 @@
     height: 150px;
     position: relative;
     background: linear-gradient(200deg, rgb(178, 20, 218) 0%, rgba(218, 20, 129, 1) 50%, rgba(246, 15, 78, 1) 100%);
-    padding: 5px;
+    padding: 8px;
     top: -50px;
     margin: 0 auto;
     border-radius: 50%;
@@ -117,4 +130,41 @@
     left: 0;
     top: 0;
     background-color: #292d4868;
+}
+
+
+
+.profile_update form {
+    width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 7px;
+    background-color: white;
+}
+
+.profile_update form>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.profile_update form>div>input {
+    width: 100%;
+    outline: 0;
+    height: 30px;
+}
+
+.profile_update form button {
+    width: 100%;
+    color: white;
+    padding: 7px 0;
+    border: none;
+    cursor: pointer;
 }

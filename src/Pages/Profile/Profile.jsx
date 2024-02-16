@@ -4,6 +4,7 @@ import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
+import { LuPencil } from "react-icons/lu";
 import { LuPen } from "react-icons/lu";
 import { SlLogout } from "react-icons/sl";
 import { toast } from "sonner";
@@ -14,6 +15,8 @@ const Profile = () => {
     const { user, logOut, setUser } = useContext(Mycontext)
 
     const axiosPrivate = UseAxios()
+
+    const [showForm, setShowForm] = useState(false)
 
     const [PendingOrders, setPendingOrders] = useState([])
     const [completedOrders, setCompletedFulOrders] = useState([])
@@ -88,6 +91,47 @@ const Profile = () => {
         }
     }
 
+
+
+    const handleUpdateDisplayName = async (e) => {
+        e.preventDefault()
+        const nameValue = e.target.userName.value || ""
+        const prevName = user?.displayName || ""
+
+        if (!nameValue) return toast.error("Please enter Your name")
+
+        if (nameValue === prevName) return toast.error("Please enter a new name")
+
+        const toastId = toast.loading("Please wait a momment")
+        try {
+            const auth = getAuth()
+
+
+
+            await updateProfile(auth.currentUser, {
+                displayName: nameValue
+            })
+
+
+            // to show the updated profile img
+            let userReplica = { ...user }
+            userReplica.displayName = nameValue
+            setUser(userReplica)
+
+            setShowForm(false)
+            toast.dismiss(toastId)
+            toast.success("User name updated")
+        }
+
+        catch {
+            toast.dismiss(toastId)
+            toast.error("Something Went Wrong Please try again")
+        }
+
+
+    }
+
+
     return (
         <>
 
@@ -106,7 +150,10 @@ const Profile = () => {
                         </label>
 
                         <div className="userDetails">
-                            <h2>{user?.displayName || "unknown"}</h2>
+                            <h2 className="userName" onClick={() => setShowForm(true)}>
+                                {user?.displayName || "unknown"}
+                                <LuPencil />
+                            </h2>
 
                             <div className="orderStates">
 
@@ -138,18 +185,26 @@ const Profile = () => {
 
 
 
-            {/* <div className="profile_update">
-                <form>
-                    <div>
-                        <p>User name</p>
-                        <input type="text" name="userName" id="" />
-                    </div>
-                    <div>
-                        <p>User name</p>
+            {
+                showForm ?
+                    <div className="profile_update">
+                        <form onSubmit={handleUpdateDisplayName}>
+                            <div>
+                                <p>User name</p>
+                                <input type="text" name="userName" id="" defaultValue={user?.displayName || ""} />
+                            </div>
 
+                            <div style={{ flexDirection: "row" }}>
+                                <button type="reset" style={{ background: "#6d757a" }}
+                                    onClick={() => setShowForm(false)}>Cancel</button>
+
+                                <button type="submit" style={{ background: "#da1481" }}>Update</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div> */}
+                    :
+                    ""
+            }
 
         </>
     );

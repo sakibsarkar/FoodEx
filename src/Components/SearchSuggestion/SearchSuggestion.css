@@ -1,8 +1,9 @@
 .suggestion_container {
+    z-index: 999;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-self: center;
+    justify-content: center;
     align-items: flex-start;
     position: absolute;
     top: 43px;
@@ -10,7 +11,6 @@
     box-shadow: 0 2px 16.8px 3.2px #00264214;
     max-height: 330px;
     overflow-y: auto;
-    z-index: 99;
     border-radius: 5px;
 
 }
@@ -32,4 +32,9 @@
     color: #363636;
     ;
     padding: 10px 0 10px 10px;
+}
+
+
+.suggestion_container p:hover {
+    background-color: #cdcdcd5e;
 }

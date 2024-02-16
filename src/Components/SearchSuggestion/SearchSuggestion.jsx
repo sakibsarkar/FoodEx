@@ -1,8 +1,8 @@
 import "./SearchSuggestion.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { useRef, useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchSuggestion = () => {
     const axios = UseAxios()
@@ -11,12 +11,12 @@ const SearchSuggestion = () => {
     // suggestion that mathed with input feild
     const [suggetion, setSuggetion] = useState([])
 
+
+
     const inputRef = useRef(null)
     const location = useLocation()
     const queryParams = new URLSearchParams(location.search)
     const searchDefaultValue = queryParams.get("search") || ""
-
-
 
     const { data } = useQuery({
         queryKey: ["itemNames"],
@@ -42,7 +42,7 @@ const SearchSuggestion = () => {
         let value = event?.target?.value.toLowerCase() || ""
 
         if (value === "") {
-            navigate(`/delivery?search=${value}`)
+            // navigate(`/delivery?search=${value}`)
             setSuggetion([])
             return setSuggetion("")
         }
@@ -66,7 +66,6 @@ const SearchSuggestion = () => {
     const navigate = useNavigate()
 
     const handleGoForSearch = (value) => {
-
         setSuggetion([])
         navigate(`/delivery?search=${value}`)
         inputRef.current.blur()
@@ -98,11 +97,11 @@ const SearchSuggestion = () => {
                     suggetion?.length > 0 ?
                         <div className="suggestion_container">
                             {
-                                suggetion?.map((sug, i) => <p
+                                suggetion?.map((suggestionValue, i) => <p
                                     key={i}
-                                    onClick={() => handleGoForSearch(sug)}
+                                    onClick={() => handleGoForSearch(suggestionValue)}
                                 >
-                                    {sug}
+                                    {suggestionValue}
                                 </p>)
                             }
                         </div>

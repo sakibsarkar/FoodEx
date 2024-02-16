@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 
 const FoodCard = ({ data = {} }) => {
     const { _id, image, name, price, category, vendor_name, vendor_id, vendor_email, description, delivery_time } = data
+
+    const prouctName = name?.length > 22 ? name.substring(0, 22) + "..." : name
+
     return (
         <Link className="foodCard" to={`/shop/${vendor_id}`}>
             <p className="favIcon"><FaRegHeart /></p>
@@ -14,7 +17,7 @@ const FoodCard = ({ data = {} }) => {
                 <img src={image} alt="" draggable={false} className="foodImage" />
             </div>
             <div className="infoWrapper">
-                <h1>{name}</h1>
+                <h1>{prouctName}</h1>
                 <span><MdRestaurant />{vendor_name}</span>
 
                 <div className="info">

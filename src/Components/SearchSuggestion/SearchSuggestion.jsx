@@ -2,6 +2,7 @@ import "./SearchSuggestion.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useRef, useState } from "react";
+import { CiSearch } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchSuggestion = () => {
@@ -51,16 +52,22 @@ const SearchSuggestion = () => {
 
         let currentIndex = index
 
-
+        if (keyCode !== 40 && keyCode !== 38) {
+            currentIndex = -1
+            setIndex(-1)
+            setSelected("")
+        }
 
         if (value === "") {
             // navigate(`/delivery?search=${value}`)
+            setSelected("")
+            setIndex(-1)
             setSuggetion([])
             return setSuggetion("")
         }
 
 
-
+        // clicking enter with selected suggestion value
         if (keyCode === 13 && selected) {
             inputRef.current.value = selected
             inputRef.current.blur()
@@ -68,6 +75,8 @@ const SearchSuggestion = () => {
             setSuggetion([])
             return
         }
+
+        // clicking enter with selected typed searching value
         if (keyCode === 13) {
             inputRef.current.blur()
             navigate(`/delivery?search=${value}`)
@@ -93,7 +102,7 @@ const SearchSuggestion = () => {
             currentIndex += 1
 
             if (currentIndex > matched.length - 1) {
-                currentIndex = - 1
+                currentIndex = -1
             }
 
             setIndex(currentIndex)
@@ -105,15 +114,13 @@ const SearchSuggestion = () => {
             currentIndex -= 1
 
             if (currentIndex < 0) {
-                currentIndex = - 1
+                currentIndex = -1
             }
 
             setIndex(currentIndex)
             setSelected(matched[currentIndex])
 
         }
-
-
 
 
 
@@ -157,7 +164,7 @@ const SearchSuggestion = () => {
                                     className={value === selected ? "selected" : ""} key={i}
                                     onClick={() => handleGoForSearch(value)}
                                 >
-                                    {value}
+                                    <CiSearch /> {value}
                                 </p>)
                             }
                         </div>

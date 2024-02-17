@@ -38,3 +38,9 @@
 .suggestion_container p:hover {
     background-color: #cdcdcd5e;
 }
+
+
+.selected{
+    background-color: #cdcdcd5e;
+    
+}

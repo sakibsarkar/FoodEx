@@ -1,7 +1,7 @@
 import "./SearchSuggestion.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchSuggestion = () => {
@@ -10,6 +10,13 @@ const SearchSuggestion = () => {
     const [itemNames, setItemNames] = useState([])
     // suggestion that mathed with input feild
     const [suggetion, setSuggetion] = useState([])
+
+
+    // slecteed suggestion index
+    const [index, setIndex] = useState(-1)
+
+    // selected suggestion by keyboard
+    const [selected, setSelected] = useState("")
 
 
 
@@ -40,6 +47,11 @@ const SearchSuggestion = () => {
     const handleSearch = (event) => {
         let matched = []
         let value = event?.target?.value.toLowerCase() || ""
+        const keyCode = event.keyCode
+
+        let currentIndex = index
+
+
 
         if (value === "") {
             // navigate(`/delivery?search=${value}`)
@@ -47,12 +59,22 @@ const SearchSuggestion = () => {
             return setSuggetion("")
         }
 
-        if (event.keyCode === 13) {
+
+
+        if (keyCode === 13 && selected) {
+            inputRef.current.value = selected
+            inputRef.current.blur()
+            navigate(`/delivery?search=${selected}`)
+            setSuggetion([])
+            return
+        }
+        if (keyCode === 13) {
             inputRef.current.blur()
             navigate(`/delivery?search=${value}`)
             setSuggetion([])
             return
         }
+
         itemNames.map(e => {
             if (e.toLowerCase().includes(value)) {
                 ""
@@ -60,6 +82,41 @@ const SearchSuggestion = () => {
             }
         })
         setSuggetion(matched)
+
+
+
+
+        // down keyCode => 40
+        // up keyCode => 38
+
+        if (keyCode === 40) {
+            currentIndex += 1
+
+            if (currentIndex > matched.length - 1) {
+                currentIndex = - 1
+            }
+
+            setIndex(currentIndex)
+            setSelected(matched[currentIndex])
+            return
+        }
+
+        if (keyCode === 38) {
+            currentIndex -= 1
+
+            if (currentIndex < 0) {
+                currentIndex = - 1
+            }
+
+            setIndex(currentIndex)
+            setSelected(matched[currentIndex])
+            return
+        }
+
+
+
+
+
 
     }
 
@@ -81,7 +138,6 @@ const SearchSuggestion = () => {
         inputRef.current.value = value
     }
 
-
     return (
         <>
 
@@ -97,17 +153,17 @@ const SearchSuggestion = () => {
                     suggetion?.length > 0 ?
                         <div className="suggestion_container">
                             {
-                                suggetion?.map((suggestionValue, i) => <p
-                                    key={i}
-                                    onClick={() => handleGoForSearch(suggestionValue)}
+                                suggetion?.map((value, i) => <p
+                                    className={value === selected ? "selected" : ""} key={i}
+                                    onClick={() => handleGoForSearch(value)}
                                 >
-                                    {suggestionValue}
+                                    {value}
                                 </p>)
                             }
                         </div>
                         : ""
                 }
-            </div>
+            </div >
 
         </>
     );

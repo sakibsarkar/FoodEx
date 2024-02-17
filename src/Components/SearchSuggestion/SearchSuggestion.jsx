@@ -98,7 +98,7 @@ const SearchSuggestion = () => {
 
             setIndex(currentIndex)
             setSelected(matched[currentIndex])
-            return
+
         }
 
         if (keyCode === 38) {
@@ -110,7 +110,7 @@ const SearchSuggestion = () => {
 
             setIndex(currentIndex)
             setSelected(matched[currentIndex])
-            return
+
         }
 
 

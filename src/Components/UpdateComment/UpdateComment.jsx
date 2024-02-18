@@ -3,6 +3,7 @@ import UseAxios from "../../Hooks & Functions/useAxios";
 import sound from "../../assets/sound.mp3";
 import { RxCross2 } from "react-icons/rx";
 import { toast } from "sonner";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 
 const UpdateComment = ({ comment, comment_id, setShow, show, refetch }) => {
     const axios = UseAxios()
@@ -34,6 +35,7 @@ const UpdateComment = ({ comment, comment_id, setShow, show, refetch }) => {
             refetch()
         }
         catch (err) {
+            errorSound()
             toast.dismiss(toastId)
             toast.error("Something went wrong")
             console.log(err);

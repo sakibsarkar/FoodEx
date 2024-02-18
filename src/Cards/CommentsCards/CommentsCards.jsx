@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import Swal from "sweetalert2";
 import UpdateComment from "../../Components/UpdateComment/UpdateComment";
 import UseAxios from "../../Hooks & Functions/useAxios";
-import deleteSound from "../../assets/delete.mp3";
+import sound from "../../assets/delete.mp3";
 import { useContext, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { CiWarning } from "react-icons/ci";
@@ -43,7 +43,7 @@ const CommentsCards = ({ comment_data, refetch }) => {
     // delte comment
     const handleDelete = async () => {
         let audio = new Audio()
-        audio.src = deleteSound
+        audio.src = sound
 
         const result = await Swal.fire({
             title: "Do you want to delete your commnet",

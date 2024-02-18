@@ -4,6 +4,12 @@
 
 }
 
+.displayItemContainer>h1 {
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
 .itemContainer {
     display: grid;
     grid-template-columns: repeat(4, 307px);

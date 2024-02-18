@@ -1,11 +1,13 @@
 import "./SocialAuth.css";
 import UseAxios from "../../Hooks & Functions/useAxios";
+import sound from "../../assets/success.mp3";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
 import { addUser } from "../../Hooks & Functions/addUser";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 
 const SocialAuth = () => {
 
@@ -18,7 +20,8 @@ const SocialAuth = () => {
     const axios = UseAxios()
 
     const handleMediaLogin = async (media) => {
-
+        let audio = new Audio()
+        audio.src = sound
         const toastId = toast.loading("Please wait a momment")
         try {
             const { user } = await media()
@@ -39,10 +42,12 @@ const SocialAuth = () => {
             toast.success("Success", {
                 description: `Welcome ${user?.displayName}`
             })
+            audio.play()
             navigate(address)
         }
 
         catch (err) {
+            errorSound()
             toast.dismiss(toastId)
             toast.error("Something went Wrong")
             console.log(err);

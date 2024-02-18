@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 import { todayDate } from "../../Hooks & Functions/todayDate";
 
 const CheckoutForm = () => {
@@ -49,6 +50,7 @@ const CheckoutForm = () => {
 
 
         if (error) {
+            errorSound()
             setPaymentLoading(false)
             toast.dismiss(toastId)
             console.log(error.message);
@@ -69,6 +71,7 @@ const CheckoutForm = () => {
         })
 
         if (err) {
+            errorSound()
             toast.dismiss(toastId)
             return toast.error("Something went wrong")
         }

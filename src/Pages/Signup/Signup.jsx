@@ -1,6 +1,7 @@
 import "./Signup.css";
 import SocialAuth from "../../Components/SocialAuth/SocialAuth";
 import UseAxios from "../../Hooks & Functions/useAxios";
+import sound from "../../assets/success.mp3";
 import { updateProfile } from "firebase/auth";
 import { useContext, useRef, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -8,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
 import { addUser } from "../../Hooks & Functions/addUser";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 import { local_img_url } from "../../Hooks & Functions/local_img_url";
 import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
@@ -28,6 +30,10 @@ const Signup = () => {
 
     const handleSignup = async (e) => {
         e.preventDefault()
+
+        let audio = new Audio()
+        audio.src = sound
+
         const form = e.target
         const Fname = form.Fname.value
         const Lname = form.Lname.value
@@ -84,10 +90,12 @@ const Signup = () => {
                 description: `Welcome ${user?.displayName}`
             })
             setRole("user")
+            audio.play()
             return navigate(adress)
         }
 
         catch (err) {
+            errorSound()
             toast.dismiss(toastLoader)
             if (mainUser) {
                 logOut();

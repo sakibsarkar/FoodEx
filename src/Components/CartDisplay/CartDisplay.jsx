@@ -1,4 +1,5 @@
 import "./CartDisplay.css";
+import sound from "../../assets/delete.mp3";
 import { useContext, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,7 +12,7 @@ const CartDisplay = () => {
     const navigate = useNavigate()
     const { vendor_id } = useParams()
 
- 
+
 
     const handleRemove = (itemIndex) => {
         let replica = [...cart]

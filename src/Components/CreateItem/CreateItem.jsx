@@ -6,6 +6,7 @@ import { GoPlus } from "react-icons/go";
 import { RxCross2 } from "react-icons/rx";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const CreateItem = ({ refetch }) => {
@@ -60,6 +61,7 @@ const CreateItem = ({ refetch }) => {
         }
 
         catch (err) {
+            errorSound()
             toast.dismiss(toastId)
             toast.error("Something went wrong")
             console.log(err);

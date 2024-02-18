@@ -9,6 +9,7 @@ import { LuPen } from "react-icons/lu";
 import { SlLogout } from "react-icons/sl";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const Profile = () => {
@@ -84,6 +85,7 @@ const Profile = () => {
         }
 
         catch {
+            errorSound()
             toast.dismiss(toastId)
             toast.error("Something went wrong", {
                 description: "Please refresh this page and try again"
@@ -124,6 +126,7 @@ const Profile = () => {
         }
 
         catch {
+            errorSound()
             toast.dismiss(toastId)
             toast.error("Something Went Wrong Please try again")
         }

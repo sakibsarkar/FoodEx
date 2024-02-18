@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { Fragment } from "react";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 
 const PostComment = ({ refetch, shopId }) => {
 
@@ -51,6 +52,7 @@ const PostComment = ({ refetch, shopId }) => {
             refetch()
         }
         catch (err) {
+            errorSound()
             setShow(false)
             toast.error("Something went wrong")
             console.log(err);

@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import { TfiEmail } from "react-icons/tfi";
 import { toast } from "sonner";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 
 const VendorRequestCard = ({ data, refetch }) => {
     const { _id, owner_name, owner_email, vendor_name, logo, banner, status } = data
@@ -48,6 +49,7 @@ const VendorRequestCard = ({ data, refetch }) => {
         }
 
         catch (err) {
+            errorSound()
             console.log(err);
             toast.dismiss(toastId)
             toast.error("Something went wrong")

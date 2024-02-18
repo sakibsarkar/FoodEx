@@ -40,3 +40,25 @@
     align-items: flex-start;
     gap: 2px;
 }
+
+
+.comment_action {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+
+}
+
+.comment_action button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}

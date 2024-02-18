@@ -14,6 +14,20 @@
     box-sizing: content-box !important;
 }
 
+textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    border-radius: 5px;
+}
+
+
+.no_scroll {
+    overflow-Y: hidden;
+}
+
 .imgSelector {
     opacity: 0;
     width: 0 !important;

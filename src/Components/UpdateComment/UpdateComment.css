@@ -1,0 +1,61 @@
+.comment_update_container {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #6565654e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment_update_container form {
+    border-radius: 10px;
+    position: relative;
+    width: 500px;
+    padding: 20px;
+    min-height: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+}
+
+
+.comment_update_container form .cross {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.comment_update_container form p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.comment_update_container form textarea {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    width: calc(100% - 20px);
+    padding: 10px;
+    resize: vertical;
+    min-height: 200px;
+
+}
+
+
+.comment_update_container button {
+    width: 100%;
+    padding: 7px 0;
+    color: white;
+    border-radius: 5px;
+    background-color: #da1481;
+}

@@ -8,6 +8,7 @@ const Comments = ({ vendor_id }) => {
 
     const axios = UseAxios()
 
+
     const { data, refetch } = useQuery({
         queryKey: ["comments"],
         queryFn: async () => {
@@ -25,7 +26,12 @@ const Comments = ({ vendor_id }) => {
                 data?.length > 0 ?
                     <div className="comments_container">
                         {
-                            data?.map(comment => <CommentsCards key={comment._id} comment_data={comment} />)
+                            data?.map(comment => <CommentsCards
+                                key={comment._id}
+                                comment_data={comment}
+                                refetch={refetch}
+
+                            />)
                         }
                     </div>
                     :

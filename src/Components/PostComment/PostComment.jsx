@@ -34,6 +34,7 @@ const PostComment = ({ refetch, shopId }) => {
 
         const commenObj = {
             name: user?.displayName,
+            email: user?.email,
             photo: user?.photoURL,
             ratings: rating,
             comment: comment_value,

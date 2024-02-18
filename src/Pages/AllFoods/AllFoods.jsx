@@ -83,7 +83,7 @@ const AllFoods = () => {
 
                 </div>
 
-                <div className="priceRange">
+                <div className="priceRange w-full">
                     <h2>Price Range <span>৳{minValue} - {maxValue}</span></h2>
                     <MultiRangeSlider
                         min={0}

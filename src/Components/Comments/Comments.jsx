@@ -21,11 +21,19 @@ const Comments = ({ vendor_id }) => {
 
             <PostComment refetch={refetch} shopId={vendor_id} />
 
-            <div className="comments_container">
-                {
-                    data?.map(comment => <CommentsCards key={comment._id} comment_data={comment} />)
-                }
-            </div>
+            {
+                data?.length > 0 ?
+                    <div className="comments_container">
+                        {
+                            data?.map(comment => <CommentsCards key={comment._id} comment_data={comment} />)
+                        }
+                    </div>
+                    :
+                    <div className="no_comments">
+                        <img src="https://i.ibb.co/FgyzZTB/no-Comments.png" alt="" />
+                        <p>No comment found be the first one</p>
+                    </div>
+            }
         </div>
     );
 };

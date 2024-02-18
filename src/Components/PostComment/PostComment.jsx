@@ -1,6 +1,7 @@
 import "./PostComment.css";
 import ReactStars from "react-rating-stars-component";
 import UseAxios from "../../Hooks & Functions/useAxios";
+import sound from "../../assets/sound.mp3";
 import { Dialog, Transition } from "@headlessui/react";
 import { useContext, useState } from "react";
 import { Fragment } from "react";
@@ -20,6 +21,8 @@ const PostComment = ({ refetch, shopId }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        let audio = new Audio()
+        audio.src = sound
         if (!user) {
             return toast.error("You must have to logedin to comment")
         }
@@ -40,6 +43,10 @@ const PostComment = ({ refetch, shopId }) => {
 
         try {
             await axios.post("/comments", commenObj)
+            audio.play()
+            setShow(false)
+            toast.success("Thanks for your feedback")
+            form.reset()
             refetch()
         }
         catch (err) {

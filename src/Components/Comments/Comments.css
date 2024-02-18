@@ -35,3 +35,18 @@
     border: 2px solid black;
     border-radius: 5px;
 }
+
+.no_comments {
+    display: flex;
+    height: 450px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    color: #6b6b6b;
+    font-size: 29px;
+    align-items: center;
+}
+
+.no_comments img {
+    width: 320px;
+}

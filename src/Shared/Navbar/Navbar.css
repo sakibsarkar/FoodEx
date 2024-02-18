@@ -110,7 +110,7 @@
 }
 
 .showDropdown {
-    height: 170px !important;
+    height: 195px !important;
     transition: 0.3s;
 }
 
@@ -183,6 +183,7 @@
 
 .navbarBottom .links .navlinks {
     font-size: 18px;
+    display: flex;
     color: #333232;
     position: relative;
     min-width: fit-content;
@@ -235,6 +236,7 @@
     background: #da1481;
     color: white;
     cursor: pointer;
+    font-size: 13px;
 }
 
 .actionButtons {

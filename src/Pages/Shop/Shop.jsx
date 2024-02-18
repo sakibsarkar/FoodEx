@@ -1,5 +1,6 @@
 import "./Shop.css";
 import CartDisplay from "../../Components/CartDisplay/CartDisplay";
+import Comments from "../../Components/Comments/Comments";
 import ItemsCard from "../../Cards/ItemsCard/ItemsCard";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
@@ -48,39 +49,43 @@ const Shop = () => {
 
 
     return (
-        <div className="shopContainer">
-            <div className="shop_wrapper">
+        <div className="shop_wrapper_class">
+            <div className="shopContainer">
+                <div className="shop_wrapper">
 
-                <div className="hero_wrapper">
-                    <div className="shop_banner">
-                        <img src={shopData?.banner} />
-                    </div>
-
-                    <div className="hero_row">
-                        <div className="logo">
-                            <img src={shopData?.logo} alt="" />
+                    <div className="hero_wrapper">
+                        <div className="shop_banner">
+                            <img src={shopData?.banner} />
                         </div>
-                        <h1>{shopData?.vendor_name}</h1>
+
+                        <div className="hero_row">
+                            <div className="logo">
+                                <img src={shopData?.logo} alt="" />
+                            </div>
+                            <h1>{shopData?.vendor_name}</h1>
+                        </div>
+
+                        <div className="available_category">
+                            {category.map((cat, index) => <button
+                                key={index}
+                                onClick={() => setSelectedCategory(cat)}
+                                className={cat === selectedCategory ? "active" : ""}
+                            >{cat}</button>)}
+                        </div>
                     </div>
 
-                    <div className="available_category">
-                        {category.map((cat, index) => <button
-                            key={index}
-                            onClick={() => setSelectedCategory(cat)}
-                            className={cat === selectedCategory ? "active" : ""}
-                        >{cat}</button>)}
+                    <div className="vendor_items">
+                        {
+                            items?.map((item) => <ItemsCard key={item._id} data={item} />)
+                        }
                     </div>
+
                 </div>
 
-                <div className="vendor_items">
-                    {
-                        items?.map((item) => <ItemsCard key={item._id} data={item} />)
-                    }
-                </div>
-
+                <CartDisplay />
             </div>
 
-            <CartDisplay />
+            <Comments vendor_id={vendor_id} />
         </div>
     );
 };

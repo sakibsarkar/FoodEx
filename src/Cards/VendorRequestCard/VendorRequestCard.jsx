@@ -34,7 +34,8 @@ const VendorRequestCard = ({ data, refetch }) => {
                     logo,
                     banner,
                     varyfied: true,
-                    likedBy: []
+                    likedBy: [],
+                    comments: [],
                 }
                 await axios.post("/new/vendor", vendorData)
 

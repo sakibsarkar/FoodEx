@@ -1,10 +1,15 @@
 .comments_wrapper {
-    min-height: 800px;
+    padding: 20px 0;
     width: 1530px;
     margin: 0 auto;
     background-color: #ffffff;
     box-shadow: 0 2px 16.8px 3.2px #00264214;
     border: 1px solid rgb(230, 230, 230);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 
@@ -14,4 +19,19 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    width: 100%;
+}
+
+
+.comment_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.comment_form textarea {
+    border: 2px solid black;
+    border-radius: 5px;
 }

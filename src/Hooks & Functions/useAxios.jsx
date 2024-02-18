@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-    // baseURL: "https://food-ex-server-beta.vercel.app/api",
-    baseURL: "http://localhost:5000/api",
+    baseURL: "https://food-ex-server-beta.vercel.app/api",
+    // baseURL: "http://localhost:5000/api",
     withCredentials: true
 })
 

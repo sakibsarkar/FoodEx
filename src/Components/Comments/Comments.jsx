@@ -10,7 +10,7 @@ const Comments = ({ vendor_id }) => {
 
 
     const { data, refetch } = useQuery({
-        queryKey: ["comments"],
+        queryKey: ["comments", vendor_id],
         queryFn: async () => {
             const { data: res } = await axios.get(`/comments?vendor_id=${vendor_id}`)
             return [...res].reverse()

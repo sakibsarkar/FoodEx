@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
     gap: 10px;
     width: 80%;
     background-color: #f1f1f1;
@@ -43,22 +44,36 @@
 
 
 .comment_action {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+.comment_action .action_slide {
+    position: absolute;
+    top: 20px;
+    right: 2px;
+    border-radius: 5px;
+    background: white;
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.comment_action .action_slide button {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
-
-
+    gap: 5px;
+    width: calc(100% - 5px);
+    padding: 5px 0 5px 5px;
+    border-bottom: 1px solid #dfdfdf;
 }
 
-.comment_action button {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background-color: red;
-    color: white;
+.comment_action .action_slide button:hover {
+    background-color: #eeeeee;
 }

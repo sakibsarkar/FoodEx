@@ -27,11 +27,12 @@
 
 }
 
-.navbarTop .logo h1 {
+.navbarTop .logo a {
     font-size: 30px;
+    font-weight: 700;
 }
 
-.navbarTop .logo h1 span {
+.navbarTop .logo a span {
     color: #da1481
 }
 

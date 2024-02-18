@@ -62,8 +62,8 @@ const Navbar = () => {
 
                 <div className="navbarTop">
 
-                    <div className="logo">
-                        <h1>Food<span>EX</span></h1>
+                    <div className="logo" draggable={false}>
+                        <Link to={"/"}>Food<span>EX</span></Link>
                     </div>
 
                     <div className="address">

@@ -58,14 +58,6 @@ const SearchSuggestion = () => {
             setSelected("")
         }
 
-        if (value === "") {
-            // navigate(`/delivery?search=${value}`)
-            setSelected("")
-            setIndex(-1)
-            setSuggetion([])
-            return setSuggetion("")
-        }
-
 
         // clicking enter with selected suggestion value
         if (keyCode === 13 && selected) {
@@ -84,7 +76,18 @@ const SearchSuggestion = () => {
             return
         }
 
-        itemNames.map(e => {
+
+        if (value === "") {
+            // navigate(`/delivery?search=${value}`)
+            setSelected("")
+            setIndex(-1)
+            setSuggetion([])
+            return
+        }
+
+
+
+        itemNames?.map(e => {
             if (e.toLowerCase().includes(value)) {
                 ""
                 matched.push(e)

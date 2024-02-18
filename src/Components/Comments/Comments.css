@@ -45,8 +45,39 @@
     color: #6b6b6b;
     font-size: 29px;
     align-items: center;
+    text-align: center;
 }
 
 .no_comments img {
     width: 320px;
+}
+
+
+
+
+
+@media screen and (max-width: 1018px) {
+    .comments_wrapper {
+        width: 90vw;
+    }
+}
+
+@media screen and (min-width: 1018px) and (max-width: 1230px) {
+    .comments_wrapper {
+        width: 1018px;
+    }
+}
+
+@media screen and (min-width: 1230px) and (max-width: 1570px) {
+    .comments_wrapper {
+        width: 1182px;
+    }
+}
+
+/* no comment message responsive */
+
+@media screen and (max-width: 670px) {
+    .no_comments img {
+        width: 250px;
+    }
 }

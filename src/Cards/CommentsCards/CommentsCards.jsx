@@ -21,7 +21,10 @@ const CommentsCards = ({ comment_data }) => {
                     <ReactStars
                         count={ratings}
                         edit={false}
+                        halfIcon={<i className="fa fa-star-half-alt"></i>}
+                        fullIcon={<i className="fa fa-star"></i>}
                         size={18}
+                        isHalf={true}
                         activeColor="#ffd700"
                     />
                 </div>

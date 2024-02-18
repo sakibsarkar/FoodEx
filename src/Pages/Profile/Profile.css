@@ -9,9 +9,9 @@
 
 .profile_container .bg_graphic {
     width: 100%;
+    height: 400px;
     background: rgb(139, 20, 218);
     background: linear-gradient(90deg, rgba(139, 20, 218, 1) 0%, rgba(218, 20, 129, 1) 50%, rgba(246, 15, 78, 1) 100%);
-    height: 500px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@
 
 .profile_container .profile_card {
     width: 500px;
-    height: 350px;
+    height: 420px;
     box-shadow: 0 2px 16.8px 3.2px #00264214;
     background-color: white;
     position: absolute;
@@ -28,6 +28,8 @@
 }
 
 .profile_card .userName {
+    font-size: 25px;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +87,25 @@
     align-items: center;
     flex-direction: column;
     gap: 5px;
+}
+
+.profile_card .orderStates .stateBox h2 {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.profile_card .orderStates .stateBox p {
+    text-align: center;
+}
+
+
+.display_role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .profile_card .profile_update_btn {
@@ -158,6 +179,7 @@
 .profile_update form>div>input {
     width: 100%;
     outline: 0;
+    border: 1px solid black;
     height: 30px;
 }
 
@@ -168,3 +190,29 @@
     border: none;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 800px) {
+
+    .profile_container .bg_graphic {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 400px) {}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {}
+
+@media screen and (min-width: 721px) and (max-width: 1280px) {}
+
+@media screen and (min-width: 121px) and (max-width: 520px) {
+
+    .profile_container .profile_card {
+        width: 95vw;
+    }
+
+}
+
+
+
+@media screen and (min-width: 1921px) {}

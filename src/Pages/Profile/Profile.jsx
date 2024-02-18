@@ -4,6 +4,7 @@ import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
+import { FaRegUser, FaUserCheck, FaUserCog } from "react-icons/fa";
 import { LuPencil } from "react-icons/lu";
 import { LuPen } from "react-icons/lu";
 import { SlLogout } from "react-icons/sl";
@@ -13,7 +14,7 @@ import { errorSound } from "../../Hooks & Functions/errorAudio";
 import { uploadImg } from "../../Hooks & Functions/uploadImg";
 
 const Profile = () => {
-    const { user, logOut, setUser } = useContext(Mycontext)
+    const { user, logOut, setUser, role } = useContext(Mycontext)
 
     const axiosPrivate = UseAxios()
 
@@ -34,26 +35,30 @@ const Profile = () => {
         }
     })
 
-    const handleLogout = () => {
-        Swal.fire({
+
+    // logout
+    const handleLogout = async () => {
+        const result = await Swal.fire({
             title: "Do you want to Logout",
             showDenyButton: true,
             confirmButtonText: "Yes",
             denyButtonText: `No,`
-        }).then(async (result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                logOut()
-                await axiosPrivate.post("/logout")
-                Swal.fire("Successfully loged out", "", "success");
-            } else if (result.isDenied) {
-                return
-            }
-        });
+        })
+
+
+        if (result.isConfirmed) {
+            logOut()
+            await axiosPrivate.post("/logout")
+            Swal.fire("Successfully loged out", "", "success");
+        }
+
+        else if (result.isDenied) {
+            return
+        }
     }
 
 
-
+    // change profile photo
     const handleUpdateDisplayImg = async (e) => {
         const img = e?.target?.files[0] || ""
 
@@ -95,6 +100,7 @@ const Profile = () => {
 
 
 
+    //change user name
     const handleUpdateDisplayName = async (e) => {
         e.preventDefault()
         const nameValue = e.target.userName.value || ""
@@ -135,6 +141,18 @@ const Profile = () => {
     }
 
 
+    // show update form
+    const handleShow = () => {
+        document.documentElement.classList.add("no_scroll")
+        setShowForm(true)
+    }
+
+    const hanldeHide = () => {
+        document.documentElement.classList.remove("no_scroll")
+        setShowForm(false)
+    }
+
+
     return (
         <>
 
@@ -153,10 +171,16 @@ const Profile = () => {
                         </label>
 
                         <div className="userDetails">
-                            <h2 className="userName" onClick={() => setShowForm(true)}>
+                            <h2 className="userName" onClick={handleShow}>
                                 {user?.displayName || "unknown"}
                                 <LuPencil />
                             </h2>
+                            <p className="display_role">
+                                {role === "user" ? <FaRegUser /> : ""}
+                                {role === "vendor" ? <FaUserCheck /> : ""}
+                                {role === "admin" ? <FaUserCog /> : ""}
+                                {role}
+                            </p>
 
                             <div className="orderStates">
 
@@ -199,7 +223,7 @@ const Profile = () => {
 
                             <div style={{ flexDirection: "row" }}>
                                 <button type="reset" style={{ background: "#6d757a" }}
-                                    onClick={() => setShowForm(false)}>Cancel</button>
+                                    onClick={hanldeHide}>Cancel</button>
 
                                 <button type="submit" style={{ background: "#da1481" }}>Update</button>
                             </div>

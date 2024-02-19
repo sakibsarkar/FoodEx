@@ -31,8 +31,8 @@ const FoodCard = ({ data = {} }) => {
                 <Link to={`/shop/${vendor_id}`} className="viewBtn">
                     <RiShoppingCart2Line />View
                 </Link>
-
                 <Link to={`/shop/${vendor_id}`} className="heartIcon"><FaRegHeart /></Link>
+
 
             </div>
         </div>

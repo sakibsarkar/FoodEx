@@ -16,8 +16,9 @@
 }
 
 .bannerContainer h1 {
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     font-size: 55px;
+    font-weight: 700;
 }
 
 .bannerContainer h1 span {

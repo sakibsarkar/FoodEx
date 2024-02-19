@@ -1,0 +1,23 @@
+.report_form {
+    width: 100%;
+}
+
+.report_form textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+
+.report_form .form_btns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.report_form .form_btns button {
+    padding: 5px 10px;
+    background-color: #e6e6e6;
+
+
+}

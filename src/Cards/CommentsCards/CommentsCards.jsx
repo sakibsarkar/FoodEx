@@ -1,9 +1,11 @@
 import "./CommentsCards.css";
+import PostReport from "../../Components/PostReport/PostReport";
 import ReactStars from "react-rating-stars-component";
 import Swal from "sweetalert2";
 import UpdateComment from "../../Components/UpdateComment/UpdateComment";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import sound from "../../assets/delete.mp3";
+import success from "../../assets/success.mp3";
 import { useContext, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { CiWarning } from "react-icons/ci";
@@ -11,11 +13,19 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 import { toast } from "sonner";
 import { Mycontext } from "../../Authcontext/Authcontext";
+import { errorSound } from "../../Hooks & Functions/errorAudio";
 
 const CommentsCards = ({ comment_data, refetch }) => {
 
+
+    // show update form
     const [show, setShow] = useState(false)
+
+    // show commnet actions
     const [showActions, setShowActions] = useState(false)
+
+    // show report form
+    const [showReportForm, setShowReportForm] = useState(false)
 
 
     const { user } = useContext(Mycontext)
@@ -32,11 +42,18 @@ const CommentsCards = ({ comment_data, refetch }) => {
 
 
 
-    // update form show
+    // show update form
     const handleShow = () => {
         setShow(true)
         setShowActions(false)
         document.documentElement.classList.add("no_scroll")
+    }
+
+
+    // show report form
+    const handleReportShow = () => {
+        setShowReportForm(true)
+        setShowActions(false)
     }
 
 
@@ -64,6 +81,10 @@ const CommentsCards = ({ comment_data, refetch }) => {
             return setShowActions(false)
         }
     }
+
+
+
+
 
     return (
         <div className="comment_box">
@@ -109,7 +130,7 @@ const CommentsCards = ({ comment_data, refetch }) => {
 
                                     :
 
-                                    <button><CiWarning />Report comment</button>
+                                    <button onClick={handleReportShow}><CiWarning />Report comment</button>
                             }
 
                         </div>
@@ -129,6 +150,18 @@ const CommentsCards = ({ comment_data, refetch }) => {
                         comment_id={_id}
                         setShow={setShow}
                         show={show} />
+                    :
+                    ""
+            }
+
+
+            {
+                showReportForm ?
+                    <PostReport
+                        comment_details={comment_data}
+                        setShow={setShowReportForm}
+                        show={showReportForm}
+                    />
                     :
                     ""
             }

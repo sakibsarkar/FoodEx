@@ -2,6 +2,7 @@ import "./Shop.css";
 import CartDisplay from "../../Components/CartDisplay/CartDisplay";
 import Comments from "../../Components/Comments/Comments";
 import ItemsCard from "../../Cards/ItemsCard/ItemsCard";
+import ProductSkeleton from "../../Components/ProductSkeleton/ProductSkeleton";
 import UseAxios from "../../Hooks & Functions/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useEffect, useState } from "react";
@@ -37,7 +38,7 @@ const Shop = () => {
     })
 
 
-    const { data: items } = useQuery({
+    const { data: items, isLoading } = useQuery({
         queryKey: ["vendorItem", selectedCategory],
         queryFn: async () => {
             const { data: itemResult } = await axios.get(`/shop_items?category=${selectedCategory}&&id=${vendor_id}`)
@@ -76,7 +77,20 @@ const Shop = () => {
 
                     <div className="vendor_items">
                         {
-                            items?.map((item) => <ItemsCard key={item._id} data={item} />)
+                            isLoading ?
+                                <>
+                                    <ProductSkeleton />
+                                    <ProductSkeleton />
+                                    <ProductSkeleton />
+                                    <ProductSkeleton />
+                                </>
+                                :
+
+                                <>
+                                    {
+                                        items?.map((item) => <ItemsCard key={item._id} data={item} />)
+                                    }
+                                </>
                         }
                     </div>
 

@@ -1,0 +1,30 @@
+.report_manager {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report_manager table {
+    border-collapse: collapse;
+    width: 1000px;
+    text-align: left;
+
+}
+
+
+.report_manager thead {
+    background: #1f68ff;
+    color: #fff;
+}
+
+.report_manager table td {
+    padding: 10px 5px;
+    font-size: 18px;
+}
+
+
+.report_manager table tbody tr:nth-child(even) {
+    background-color: #adbbd72b;
+}

@@ -37,11 +37,15 @@
 
 .deliveryContent h1 {
     font-size: 40px;
+    font-weight: 700;
     color: #252525
 }
 
 .deliveryContent h1 span {
-    color: #f53b85;
+    background-color: #f53b85;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 0 20px 0 20px;
 
 }
 

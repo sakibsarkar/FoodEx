@@ -8,6 +8,7 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MainLayout from "../Layout/MainLayout";
+import ManageReports from "../DashboardPages/Admin/ManageReports/ManageReports";
 import ManageShop from "../DashboardPages/Vendor/ManageShop/ManageShop";
 import OrderHistory from "../Pages/OrderHistory/OrderHistory";
 import Overview from "../DashboardPages/Vendor/Overview/Overview";
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard/users",
                 element: <AdminPrivate><AllUser /></AdminPrivate>
+            },
+            {
+                path: "/dashboard/reports",
+                element: <AdminPrivate><ManageReports /></AdminPrivate>
             },
             // vendor routes
             {
